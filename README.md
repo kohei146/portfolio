@@ -23,7 +23,6 @@
 新しく読む本を探す時
 自分が読んだ本を読んでいる人が他にどんな本を読んでいるのか気になった時
 ## 設計書
-<...>
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1vYElnQ19qDp5naGfNVad3ME6tsqw50KO3wFRMmx9_nI/edit#gid=0
