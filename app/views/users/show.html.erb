@@ -2,15 +2,21 @@
   <h1 class="mb-5">マイページ</h1>
   <h2 class="heading">プロフィール</h2>
     <div class="profile-group">
-      <div class="left content">
+      <div class="left-content">
         <img src=<%= @user.image_id %> class = "icon_image">
         <!--フォロー一覧-->
         <!--フォロワー一覧-->
         <!--DM-->
       </div>
       <div class="right-content">
-        <h3 class="profile-name"><%= @user.name %></h3>
-        <h3 class="profile-introduction"><%= @user.introduction %></h3>
+        <div class="profile-name">
+          <h3>ニックネーム</h3>
+            <%= @user.name %>
+        </div>
+        <div class="profile-introduction">
+          <h3>紹介文</h3>
+            <%= @user.introduction %>
+        </div>
         <% if @user.id == current_user.id %>
           <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
         <% end %>
