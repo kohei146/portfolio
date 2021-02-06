@@ -10,7 +10,10 @@
             <!--ログインしている時に表示-->
             <% if user_signed_in? %>
               <li class="nav-item active">
-                <a class="nav-link active" href="#">マイページ</span></a>
+                <%= link_to user_path(current_user.id), class: 'nav-link active' do %>
+                  <i class="fas fa-book"></i>
+                    マイページ
+                <% end %>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="#">話題</a>
@@ -39,7 +42,7 @@
             <!--ログインしていない時に表示-->
               <li class="nav-item active">
                 <%= link_to about_path, class: 'nav-link active' do %>
-                  <i class="fas fa-book-spells"></i>
+                  <i class="fas fa-book"></i>
                     アバウト
                 <% end %>
               </li>
