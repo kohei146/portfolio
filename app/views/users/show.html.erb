@@ -3,7 +3,7 @@
   <h2 class="heading">プロフィール</h2>
     <div class="profile-group">
       <div class="left-content">
-        <img src=<%= @user.image_id %> class = "icon_image">
+        <%= image_tag @user.image.to_s, class: "icon_image" %>
         <!--フォロー一覧-->
         <!--フォロワー一覧-->
         <!--DM-->

@@ -1,24 +1,26 @@
 <h1>
-  <i class="fas fa-search"></i>
-  ニックネームでさがす
+  <i class="fas fa-search">ニックネームでさがす</i>
 </h1>
 
-<%= form_with url: users_search_path, method: :get, local: true do |f| %>
-<%= f.text_field :content %>
-<%= f.submit '検索' %>
-<% end %>
+  <div class="search-form">
+    <%= form_with url: users_search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit '検索' %>
+    <% end %>
+  </div>
+
 
 <!--存在しないユーザーか空文字で検索した際に表示-->
 <% if !@content.nil? && (@content.empty? || @users.empty?) %>
-ユーザはいません
+  <p>お探しのユーザーは見つかりませんでした。</p>
 <!--存在するユーザーを検索した際に表示-->
 <% elsif @users.present? %>
 
 <div class="container">
-	<h3>Customers search for "<%= @content %>"</h3>
+	<h3>検索ワード "<%= @content %>"</h3>
   <div class="row mt-5">
     <div class="col">
-      <h3 class="bg-light text-center" style="width:150px">会員検索結果</h3>
+      <h3 class="bg-light text-center" style="width:150px">検索結果</h3>
 
       <table class="table mt-5">
         <thead class="thead-light">
@@ -30,7 +32,7 @@
         <tbody>
           <% @users.each do |user| %>
           <tr>
-            <td><%= image_tag user.image_id.to_s, class: "icon_image" %></td>
+            <td><%= image_tag user.image.to_s, class: "icon_image" %></td>
             <td>
               <%= link_to user_path(user) do %>
                 <%= user.name %>

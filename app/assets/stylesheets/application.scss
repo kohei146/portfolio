@@ -17,13 +17,27 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
-// フッター
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  }
+
+.wrapper {
+  min-height: 100%;
+// フッターの高さと等しいネガティブマージンを指定
+  margin-bottom: -50px;
+  }
+
 footer {
   width: 100%;
-  height: 100px;
+  height: 50px;
   color: white;
   background: lightblue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  }
+
+.push {
+  height: 50px;
   }

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # プロフィール画像アップロード
-  mount_uploader :image_id, ImageUploader
+  mount_uploader :image, ImageUploader
 
   # ユーザー検索用のメソッド
   def self.search(content)
