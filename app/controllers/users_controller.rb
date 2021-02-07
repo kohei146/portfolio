@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   end
 
   def search
+    @content = params[:content]
+    @users = User.search(@content)
   end
 
   def index

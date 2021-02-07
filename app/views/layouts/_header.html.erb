@@ -23,8 +23,8 @@
                   探す
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">本を探す</a>
-                  <a class="dropdown-item" href="#">ユーザーを探す</a>
+                  <%= link_to "本を探す", users_search_path, class: 'dropdown-item' %>
+                  <%= link_to "ユーザーを探す", users_search_path, class: 'dropdown-item' %>
                 </div>
               </li>
               <li class="nav-item active">
