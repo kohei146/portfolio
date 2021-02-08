@@ -30,4 +30,7 @@
     <%= book.title %>
     <%= book.author %>
   <% end %>
+  <% if @user.id == current_user.id %>
+    <%= link_to "本棚から外す", book_path(book), method: :delete %>
+  <% end %>
 <% end %>
