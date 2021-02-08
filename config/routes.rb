@@ -9,3 +9,5 @@ Rails.application.routes.draw do
   get '/book/review' => 'books#review'
   resources :books, only: [:index, :show, :create, :edit, :update, :destroy]
 end
+
+# 書く順番気をつける

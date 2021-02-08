@@ -4,11 +4,11 @@
 
   <div class="search-form">
     <%= form_tag('/books/search', method: :get) do %>
-    <%= search_field_tag "keyword", params[:keyword], placeholder: "タイトル・著者名で検索", size: 30 %> 
+    <%= search_field_tag "keyword", params[:keyword], placeholder: "タイトル・著者名で検索", size: 30 %>
     <%= submit_tag "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
-  
+
 <% if @books.present? %>
   <div class="search_result">
     <h2>検索結果</h2>
@@ -23,6 +23,7 @@
         <%= f.hidden_field :code, value: book[3] %>
         <%= f.hidden_field :description, value: book[4] %>
         <%= f.hidden_field :published_date, value: book[5] %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.submit "本棚に追加する", class: "btn btn-success" %><br>
       <% end %>
     <% end %>
