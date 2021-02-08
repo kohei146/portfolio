@@ -11,6 +11,19 @@
 <% end %>
 
 <%= @book.review %>
+　<% if @book.favorited_by?(current_user) %>
+    <p>
+      <%= link_to book_favorites_path(@book), method: :delete do %>
+        ♥<%= @book.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to book_favorites_path(@book), method: :post do %>
+        ♡<%= @book.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
  <div class=" posts-content">
    <h4 class="mb-3">評価：<%= @book.rate %>点 | <%= @book.title %></h4>
    <!--星評価-->
