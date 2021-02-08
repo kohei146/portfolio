@@ -1,0 +1,4 @@
+<%= form_with model:@book, local: true do |f| %>
+    <%= f.text_area :review %>
+    <%= f.submit "レビューを投稿する", class: "btn btn-success" %>
+  <% end %>

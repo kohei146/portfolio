@@ -6,3 +6,8 @@
 <%= @book.description %>
 <%= @book.published_date %>
 
+<% if @book.user_id == current_user.id %>
+  <%= link_to "レビュー", edit_book_path(@book) %>
+<% end %>
+
+<%= @book.review %>
