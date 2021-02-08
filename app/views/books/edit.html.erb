@@ -1,4 +1,19 @@
 <%= form_with model:@book, local: true do |f| %>
+
     <%= f.text_area :review %>
+  <div class="field" id="star">
+  <%= f.label :rate, "星評価：" %>
+  <%= f.hidden_field :rate, id: :review_star %>
+  <script>
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'book[rate]',
+      half: true,
+    });
+  </script>
+</div>
     <%= f.submit "レビューを投稿する", class: "btn btn-success" %>
   <% end %>
