@@ -4,9 +4,9 @@ class MessagesController < ApplicationController
     # ログインユーザーのidが入ったroom_idのみ配列で取得
     rooms = current_user.entries.pluck(:room_id)
     # user_idが@user且つroom_idがrooms配列の中にある数値のものを取得
-    entries = Entry.find_by(user_id: @user_id, room_id: rooms)
+    entry = Entry.find_by(user_id: @user.id, room_id: rooms)
     
-    if entries.nil?
+    if entry.nil?
       # 取得していない場合、roomのレコードとentryのレコードを作成
       @room = Room.new
       @room.save
@@ -14,19 +14,19 @@ class MessagesController < ApplicationController
       Entry.create(user_id: @user.id, room_id: @room.id)
     else
       # 取得していた場合は、roomテーブルのレコードを@roomに代入
-      @room = entries.room
+      @room = entry.room
     end
     @messages = @room.messages
     @message = Message.new(room_id: @room.id)
   end
-  
+
   def create
     @message = current_user.messages.new(message_params)
     @message.save
   end
-  
+
   private
-  
+
   def message_params
     params.require(:message).permit(:message, :room_id)
   end
