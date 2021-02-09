@@ -6,6 +6,9 @@ class User < ApplicationRecord
          
   has_many :books
   has_many :favorites
+  has_many :entries, dependent: :destroy
+  has_many :messages
+  has_many :rooms, through: :entries
   # 自分がフォローされる（被フォロー）側の関係性
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   # 自分がフォローする（与フォロー）側の関係性
