@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   get 'message/:id' => 'messages#show', as: 'message'
-  resources :messages, only: [:create]
+  resources :messages, only: [:create, :index]
 end
 
 #書く順番気をつける

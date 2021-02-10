@@ -24,6 +24,10 @@ class MessagesController < ApplicationController
     @message = current_user.messages.new(message_params)
     @message.save
   end
+  
+  def index
+    @rooms = current_user.rooms
+  end
 
   private
 
