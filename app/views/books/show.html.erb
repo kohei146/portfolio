@@ -1,42 +1,54 @@
-<h1>本詳細</h1>
-
-<%= image_tag @book.image %><br />
-<%= @book.title %>
-<%= @book.author %>
-<%= @book.description %>
-<%= @book.published_date %>
-
-<% if @book.user_id == current_user.id %>
-  <%= link_to "レビュー", edit_book_path(@book) %>
-<% end %>
-
-<%= @book.review %>
-　<% if @book.favorited_by?(current_user) %>
-    <p>
-      <%= link_to book_favorites_path(@book), method: :delete do %>
-        ♥<%= @book.favorites.count %> いいね
+<div class= "book-detail">
+  <div class="book-top">
+    <h1>本詳細</h1>
+    <div class="book-image">
+      <%= image_tag @book.image, class: 'size'%>
+    </div>
+    <div class="book-title">
+        タイトル：<%= @book.title %><br>
+        著者名：<%= @book.author %><br>
+        出版日：<%= @book.published_date %>
+    </div>
+   </div>
+   
+   <% if @book.review.present? %>
+  <div class="book-bottom">
+    <div class="book-rate">
+      評価：<%= @book.rate %>点 | <%= @book.title %>
+       <div id="star-rate-<%= @book.id %>"></div>
+        <script>
+            $('#star-rate-<%= @book.id %>').raty({
+              size: 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true,
+              score: <%= @book.rate %>,
+            });
+        </script>
+      </div>
+      <div class="book-review">
+        <%= @book.review %>
+      </div>
+      <div class="review-edit">
+      <% if @book.user_id == current_user.id %>
+        <%= link_to "レビューを書く", edit_book_path(@book), class: "btn btn-primary" %>
       <% end %>
-    </p>
+      <div class="book-favorite">
+      <% if @book.favorited_by?(current_user) %>
+           <%= link_to book_favorites_path(@book), method: :delete do %>
+             ♥<%= @book.favorites.count %>
+           <% end %>
+        <% else %>
+           <%= link_to book_favorites_path(@book), method: :post do %>
+             ♡<%= @book.favorites.count %>
+           <% end %>
+        <% end %>
+      </div>
+      </div>
+    </div>
     <% else %>
-    <p>
-      <%= link_to book_favorites_path(@book), method: :post do %>
-        ♡<%= @book.favorites.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
- <div class=" posts-content">
-   <h4 class="mb-3">評価：<%= @book.rate %>点 | <%= @book.title %></h4>
-   <!--星評価-->
-     <div id="star-rate-<%= @book.id %>"></div>
-      <script>
-          $('#star-rate-<%= @book.id %>').raty({
-            size: 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            half: true,
-            readOnly: true,
-            score: <%= @book.rate %>,
-          });
-          </script>  
-        <!--/星評価-->
+    まだレビューがありません
+    <% end %>
+  </div>

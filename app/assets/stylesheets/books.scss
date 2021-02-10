@@ -2,7 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .search_result{
    text-align: center;
    padding-top: 30px;
+}
+
+
+img.size{
+   width: 17%;
+   height: 17%;
+}
+
+.book-top{
+   text-align: center;
+   margin-bottom: 30px;
+}
+
+.book-image{
+   padding-top: 50px;
+   text-align: center;
+   padding-bottom: 20px;
+}
+
+
+.book-review{
+   width: 500px;
+   height: 200px;
+   border: solid 1px #1e1e1e;
+}
+
+.book-bottom{
+  margin-left: 600px;
+}
+
+.book-rate{
+   margin-bottom: 10px;
+}
+.review-edit{
+  padding-top: 20px;
+  margin-left: 180px;
+}
+
+.book-favorite{
+   margin-left: 300px;
+   font-size: 32px;
+
 }

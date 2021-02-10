@@ -3,9 +3,9 @@
   <h2 class="heading">プロフィール</h2>
     <div class="profile-group">
       <div class="left-content">
-        
+
         <%= image_tag @user.image.to_s, class: "icon_image" %><br>
-        
+
         フォロー数:
         <%= link_to user_followings_path(@user) do %>
           <%= @user.followings.count %>
@@ -21,15 +21,15 @@
             <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
           <% end %>
         <% end %>
-        
+
         <% if current_user != @user %>
           <% if (current_user.following? @user) && (@user.following? current_user)  %>
             <%= link_to 'chatを始める', message_path(@user.id) %>
           <% end %>
         <% end %>
-        
+
         <%= link_to 'DM一覧へ', messages_path %>
-        
+
       </div>
       <div class="right-content">
         <div class="profile-name">
