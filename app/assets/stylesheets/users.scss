@@ -7,42 +7,12 @@
   height: 200px;
   //サイズ指定
   border-radius: 100px;
+  border: solid 1px;
   //画像を丸くする
   object-fit: cover;
   //タテヨコ比を変えないままトリミング
 }
 
-.container{
-  display: block;
-}
-
-.heading {
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  font-size: 32px;
-}
-
-.profile-group {
-    padding: 30px 0 90px 0;
-    
-    
-}
-
-.left-content {
-    
-    width: 50%;
-    float: left;
-}
-
-.right-content {
-    width: 50%;
-    float: right;
-}
-
-.profile-name {
-    margin-top: 0px;
-    font-size: 20px;
-}
 
 h1{
   padding-top: 50px;

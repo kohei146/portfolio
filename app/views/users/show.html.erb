@@ -1,8 +1,8 @@
 <div class="container">
   <h1 class="mb-5">マイページ</h1>
-  <h2 class="heading">プロフィール</h2>
-    <div class="profile-group">
-      <div class="left-content">
+  <h2 class="heading mb-5">プロフィール</h2>
+    <div class="row">
+      <div class="left-content col-6">
 
         <%= image_tag @user.image.to_s, class: "icon_image" %><br>
 
@@ -31,7 +31,7 @@
         <%= link_to 'DM一覧へ', messages_path %>
 
       </div>
-      <div class="right-content">
+      <div class="right-content col-6">
         <div class="profile-name">
           <h3>ニックネーム</h3>
             <%= @user.name %>
@@ -41,19 +41,24 @@
             <%= @user.introduction %>
         </div>
         <% if @user.id == current_user.id %>
-          <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+          <%= link_to "プロフィール編集", edit_user_path(@user) %>
         <% end %>
       </div>
     </div>
-</div>
-
+<h1 class="mb-5">本棚</h1>
+<div class="row">
 <% @books.each do |book| %>
+<div class="col-3">
   <%= link_to book_path(book.id) do %>
     <%= image_tag book.image %><br />
-    <%= book.title %>
-    <%= book.author %>
   <% end %>
+    タイトル:<%= book.title %><br>
+    著者名:<%= book.author %><br>
   <% if @user.id == current_user.id %>
-    <%= link_to "本棚から外す", book_path(book), method: :delete %>
+    <%= link_to "本棚から外す", book_path(book), method: :delete, class: "btn btn-info" %>
   <% end %>
+  </div>
 <% end %>
+</div>
+
+</div>

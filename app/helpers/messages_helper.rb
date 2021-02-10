@@ -21,12 +21,11 @@ module MessagesHelper
     # 中間テーブルから相手ユーザーのデータを取得
     entry = room.entries.where.not(user_id: current_user)
     # 相手ユーザーの名前を取得
-    name = entry[0].user.name
+    # name = entry[0].user.name
+    entry[0].user
   end
   
-  def image_user(room)
-     entry = room.entries.where.not(user_id: current_user)
-     image = entry[0].user.image
-  end
+
+  
   
 end
