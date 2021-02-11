@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_022548) do
+ActiveRecord::Schema.define(version: 2021_02_11_025348) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 2021_02_11_022548) do
     t.integer "user_id"
     t.integer "room_id"
     t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "book_id"
+    t.integer "comment_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

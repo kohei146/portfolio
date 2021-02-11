@@ -9,15 +9,15 @@ Rails.application.routes.draw do
   	get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
-
   get '/books/search' => 'books#search'
   resources :books, only: [:index, :show, :create, :edit, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-
   get 'message/:id' => 'messages#show', as: 'message'
   resources :messages, only: [:create, :index]
+  delete 'notification/destroy_all' => 'notifications#destroy_all', as: 'notification'
+  resources :notifications, only: :index
 end
 
 #書く順番気をつける

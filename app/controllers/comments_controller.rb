@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    book = Book.find(params[:book_id])
+    @book = Book.find(params[:book_id])
     comment = current_user.comments.new(comment_params)
-    comment.book_id = book.id
-    comment.save
-    redirect_to book_path(book)
+    comment.book_id = @book.id
+    @book_comment = comment.book
+    if comment.save
+      @book_comment.create_notification_comment(current_user, comment.id)
+      redirect_to book_path(@book)
+    end
   end
 
   def destroy
