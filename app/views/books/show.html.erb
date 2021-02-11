@@ -10,8 +10,8 @@
         出版日：<%= @book.published_date %>
     </div>
    </div>
-   
-   <% if @book.review.present? %>
+
+   <%# if @book.review.present? %>
   <div class="book-bottom">
     <div class="book-rate">
       評価：<%= @book.rate %>点 | <%= @book.title %>
@@ -35,6 +35,7 @@
       <% if @book.user_id == current_user.id %>
         <%= link_to "レビューを書く", edit_book_path(@book), class: "btn btn-primary" %>
       <% end %>
+      </div>
       <div class="book-favorite">
       <% if @book.favorited_by?(current_user) %>
            <%= link_to book_favorites_path(@book), method: :delete do %>
@@ -46,9 +47,24 @@
            <% end %>
         <% end %>
       </div>
-      </div>
     </div>
-    <% else %>
-    まだレビューがありません
-    <% end %>
   </div>
+
+  <div class="comments">
+<p>コメント件数：<%= @book.comments.count %></p>
+<% @book.comments.each do |comment| %>
+  <%= comment.user.name %>
+  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+  <% if comment.user == current_user %>
+  <div class="comment-delete">
+    <%= link_to "削除", book_comment_path(comment.book, comment), method: :delete %>
+  </div>
+  <% end %>
+<% end %>
+</div>
+<div class="new-comment">
+<%= form_with(model:[@book, @comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>
