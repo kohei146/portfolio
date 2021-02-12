@@ -70,3 +70,8 @@ gem 'kaminari','~> 1.2.1'
 gem 'rubocop-airbnb'
 gem 'carrierwave'
 gem 'mini_magick'
+
+# 本番環境
+group :production do
+  gem 'mysql2'
+end
