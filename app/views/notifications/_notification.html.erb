@@ -3,7 +3,11 @@
 
 <div class="user-view clearfix ">
   <%= link_to user_path(notification.visitor) do %>
-    <%= image_tag visitor.image.url, class: "icon_mini" %>
+    <% if visitor.image? %>
+      <%= image_tag visitor.image.url, class: "icon_mini" %>
+    <% else %>
+      <%= image_tag "/assets/default.png", class: "icon_mini" %>
+    <% end %>
   <% end %>
   <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span>
   <br>
