@@ -12,7 +12,13 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= image_tag user.image.url, class: "icon_image" %></td>
+        <td>
+          <% if user.image? %>
+            <%= image_tag user.image.url, class: "icon_image" %>
+          <% else %>
+            <%= image_tag "/assets/default.png", class: "icon_image" %>
+          <% end %>
+        </td>
         <td><%= user.name %></td>
         <td>
           フォロー数:

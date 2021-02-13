@@ -3,9 +3,11 @@
   <h2 class="heading mb-5">プロフィール</h2>
     <div class="row">
       <div class="left-content col-6">
-
-        <%= image_tag @user.image.url, class: "icon_image" %><br>
-
+        <% if @user.image? %>
+          <%= image_tag @user.image.url, class: "icon_image" %><br>
+        <% else %>
+          <%= image_tag "/assets/default.png", class: "icon_image" %>
+        <% end %>
         フォロー数:
         <%= link_to user_followings_path(@user) do %>
           <%= @user.followings.count %>
