@@ -1,7 +1,7 @@
 
 <% @rooms.each do |room| %>
   <%= link_to message_path(opponent_user(room).id) do %>
-    <%= image_tag opponent_user(room).image.to_s, class: "icon_image" %>
+    <%= image_tag opponent_user(room).image.url, class: "icon_image" %>
     <%= opponent_user(room).name %>
     <%= most_new_message_preview(room) %>
   <% end %>

@@ -12,7 +12,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= image_tag user.image.to_s, class: "icon_image" %></td>
+        <td><%= image_tag user.image.url, class: "icon_image" %></td>
         <td><%= user.name %></td>
         <td>
           フォロー数:
