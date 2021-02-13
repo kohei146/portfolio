@@ -32,7 +32,7 @@
         <tbody>
           <% @users.each do |user| %>
           <tr>
-            <td><%= image_tag user.image.to_s, class: "icon_image" %></td>
+            <td><%= image_tag user.image.url, class: "icon_image" %></td>
             <td>
               <%= link_to user_path(user) do %>
                 <%= user.name %>
