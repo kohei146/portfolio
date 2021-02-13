@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_025348) do
+ActiveRecord::Schema.define(version: 2021_02_13_063735) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_025348) do
     t.text "description"
     t.text "review"
     t.string "image"
-    t.integer "code"
+    t.string "code"
     t.float "rate"
     t.integer "user_id"
     t.datetime "created_at", null: false
