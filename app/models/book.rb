@@ -3,12 +3,12 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  
+
   # いいねしているか判定
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-  
+
   # いいねの通知
   def create_notification_favorite(current_user)
     # すでにいいねされているか確認
@@ -27,7 +27,7 @@ class Book < ApplicationRecord
       notification.save if notification.valid?
     # end
   end
-  
+
   # コメントの通知
   def create_notification_comment(current_user, comment_id)
     # 自分以外にコメントしている人を全て取得し、全員に通知を送る
@@ -38,7 +38,7 @@ class Book < ApplicationRecord
     # まだ誰もコメントしてない場合は、投稿者に通知を送る
     save_notification_comment(current_user, comment_id, user_id) if temp_ids.blank?
   end
-  
+
   def save_notification_comment(current_user, comment_id, visited_id)
     # コメントは複数回することが考えられるため、1つの投稿に複数回通知する
     notification = current_user.active_notifications.new(
@@ -53,5 +53,14 @@ class Book < ApplicationRecord
     end
     notification.save if notification.valid?
   end
-    
+
+  # 本棚に入っている本の数のランキング
+  def self.create_books_ranks
+    Book.all.group(:code).order('count(code) desc').limit(3)
+  end
+
+  # 本棚に入っている著者のランキング
+  def self.create_authors_ranks
+    Book.all.group(:author).order('count(author) desc').limit(3)
+  end
 end

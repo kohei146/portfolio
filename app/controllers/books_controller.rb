@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
 
   def index
-
+    @book_ranks = Book.create_books_ranks
+    @author_ranks = Book.create_authors_ranks
   end
 
   def show
