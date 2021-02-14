@@ -33,5 +33,5 @@ https://docs.google.com/spreadsheets/d/1vYElnQ19qDp5naGfNVad3ME6tsqw50KO3wFRMmx9
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-- インフラ :AWS,EC2,RDS
-- バージョン管理 :Git,GitHub(リモート管理)
+- インフラ：AWS,EC2,RDS
+- バージョン管理：Git,GitHub(リモート管理)
