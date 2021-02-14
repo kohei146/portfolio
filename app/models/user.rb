@@ -67,5 +67,12 @@ class User < ApplicationRecord
       user.name = 'ゲスト'
     end
   end
+  
+  
+  # アカウント作成時にメールを送信
+  after_create :send_welcome_mail
+  def send_welcome_mail
+    ThanksMailer.send_signup_email(self).deliver
+  end
 
 end
