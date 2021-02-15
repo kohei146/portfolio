@@ -11,61 +11,62 @@
             <% if user_signed_in? %>
               <li class="nav-item active">
                 <%= link_to user_path(current_user.id), class: 'nav-link active' do %>
-                  <i class="fas fa-book"></i>
-                    マイページ
+                  <i class="fas fa-book">マイページ</i>
                 <% end %>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">話題</a>
+              <li class="nav-item active">
+                <%= link_to books_path, class: 'nav-link active' do %>
+                  <i class="fas fa-crown">ランキング</i>
+                <% end %>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  探す
+                  <i class="fas fa-search">さがす</i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to "本を探す", books_search_path, class: 'dropdown-item' %>
-                  <%= link_to "ユーザーを探す", users_search_path, class: 'dropdown-item' %>
+                  <%= link_to books_search_path, class: 'dropdown-item' do %>
+                    <i class="fas fa-book-open">本をさがす</i>
+                  <% end %>
+                  <%= link_to users_search_path, class: 'dropdown-item' do %>
+                    <i class="fas fa-users">人をさがす</i>
+                  <% end %>
                 </div>
               </li>
               <li class="nav-item active">
                 <%= link_to notifications_path do %>
                   <% if unchecked_notifications.any? %>
-                    <span class="fa-stack ">
-                      <i class= "far fa-bell fa-lg nav-link active"></i>
-                      <i class= "fas fa-circle n-circle fa-stack-1x"></i>
-                    </span>
+                    <i class= "fas fa-bell fa-lg nav-link active">通知</i>
+                    <i class= "fas fa-circle n-circle fa-stack-1x"></i>
                   <% else %>
-                    <i class= "far fa-bell fa-lg nav-link active"></i>
+                    <i class= "fas fa-bell nav-link active">通知</i>
                   <% end %>
                 <% end %>
               </li>
               <li class="nav-item active">
                 <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link active' do %>
-                  <i class="fas fa-sign-out-alt"></i>
-                    ログアウト
+                  <i class="fas fa-sign-out-alt">ログアウト</i>
                 <% end %>
               </li>
             <% else %>
             <!--ログインしていない時に表示-->
               <li class="nav-item active">
                 <%= link_to about_path, class: 'nav-link active' do %>
-                  <i class="fas fa-book"></i>
-                    アバウト
+                  <i class="fas fa-book-reader">アバウト</i>
                 <% end %>
               </li>
               <li class="nav-item active">
-                <a class="nav-link active" href="#">話題</a>
+                <%= link_to books_path, class: 'nav-link active' do %>
+                  <i class="fas fa-crown">ランキング</i>
+                <% end %>
               </li>
               <li class="nav-item active">
                 <%= link_to new_user_registration_path, class: 'nav-link active' do %>
-                  <i class="fas fa-user-plus"></i>
-                    新規登録
+                  <i class="fas fa-user-plus">新規登録</i>
                 <% end %>
               </li>
               <li class="nav-item active">
                 <%= link_to new_user_session_path, class: 'nav-link active' do %>
-                  <i class="fas fa-sign-in-alt"></i>
-                    ログイン
+                  <i class="fas fa-sign-in-alt">ログイン</i>
                 <% end %>
               </li>
             <% end %>

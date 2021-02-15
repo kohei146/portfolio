@@ -1,0 +1,7 @@
+<% @book_ranks.each.with_index(1) do |book, i| %>
+第<%= i %>位<%= book.title %>
+<% end %>
+
+<% @author_ranks.each.with_index(1) do |book, i| %>
+第<%= i %>位<%= book.author %>
+<% end %>

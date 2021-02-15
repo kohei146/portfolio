@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
 
   def index
-
+    @book_ranks = Book.create_books_ranks
+    @author_ranks = Book.create_authors_ranks
   end
 
   def show
@@ -42,13 +43,13 @@ class BooksController < ApplicationController
     if params[:keyword].present?
       require 'net/http'
       url = 'https://www.googleapis.com/books/v1/volumes?q='
-      request = url + params[:keyword]
+      request = url + params[:keyword] + '&maxResults=40'
       enc_str = URI.encode(request)
       uri = URI.parse(enc_str)
       json = Net::HTTP.get(uri)
       @bookjson = JSON.parse(json)
 
-      count = 10 # 検索結果に表示する数
+      count = 40 # 検索結果に表示する数
       @books = Array.new(count).map { Array.new(4) }
       count.times do |x|
         # タイトルを取得
@@ -65,6 +66,7 @@ class BooksController < ApplicationController
         # 出版日を取得
         @books[x][5] = @bookjson.dig("items", x, "volumeInfo", "publishedDate")
       end
+      @books = Kaminari.paginate_array(@books).page(params[:page]).per(10)
     end
   end
 
