@@ -34,5 +34,7 @@
 
 
 <div class="container">
-  <%= paginate @books %>
+  <% if @books.present? %>
+    <%= paginate @books %>
+  <% end %>
 </div>
