@@ -1,0 +1,5 @@
+<% @books.each do |book| %>
+  <div>
+    <%= book.user_id %>さんが<%= image_tag book.image %><%= book.title %>を本棚に登録しました。
+  </div>
+<% end %>
