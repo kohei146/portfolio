@@ -1,12 +1,18 @@
-
-<% @rooms.each do |room| %>
-  <%= link_to message_path(opponent_user(room).id) do %>
-    <% if opponent_user(room).image? %>
-      <%= image_tag opponent_user(room).image.url, class: "icon_image" %>
-    <% else %>
-      <%= image_tag "/assets/default.png", class: "icon_image" %>
+<div class="container">
+  <h1 class="mt-5">DM一覧</h1>
+  <div class="row">
+    <% @rooms.each do |room| %>
+      <div class="col-12 border text-center">
+        <%= link_to message_path(opponent_user(room).id) do %>
+          <% if opponent_user(room).image? %>
+            <%= image_tag opponent_user(room).image.url, class: "icon_mini" %>
+          <% else %>
+            <%= image_tag "/assets/default.png", class: "icon_mini" %>
+          <% end %>
+          <%= opponent_user(room).name %>
+          <%= most_new_message_preview(room) %>
+        <% end %>
+      </div>
     <% end %>
-    <%= opponent_user(room).name %>
-    <%= most_new_message_preview(room) %>
-  <% end %>
-<% end %>
+  </div>
+</div>

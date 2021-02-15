@@ -1,15 +1,16 @@
 <body id="main-container">
-
-<div class="text_against_picture">
-  <h1>新しい本との出会いへ</h1>
-  MyBookshelfは新しい本との出会いへ繋げてくれる<br>
-  自分が読んだ本を本棚に登録し共有しよう<br>
-  ここには自分の好きな本を共有できる仲間がたくさんいます<br>
-</div>
-<div class="sign_up">
-  <%= link_to '新規登録する', new_user_registration_path, class: 'btn btn-success' %><br>
-</div>
-<div class="guest_sign_in">
-  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'btn btn-info' %>
-</div>
+  <div class="text_against_picture">
+    <h1>新しい本との出会いへ</h1>
+    <p>
+      MyBookshelfは新しい本との出会いへ繋げてくれる<br>
+      自分が読んだ本を本棚に登録し共有しよう<br>
+      ここには自分の好きな本を共有できる仲間がたくさんいます<br>
+    </p>
+  </div>
+  <div class="sign_up">
+    <%= link_to '新規登録する', new_user_registration_path, class: 'btn btn-success' %><br>
+  </div>
+  <div class="guest_sign_in">
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'btn btn-info' %>
+  </div>
 </body>

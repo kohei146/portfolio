@@ -1,14 +1,19 @@
-<div class="message">
-  <h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h1>
-  <% @messages.each do |message| %>
-    <% if message.user_id == current_user.id %>
-      <p style="text-align: right;"><%= message.message %></p>
-    <% else %>
-      <p style="text-align: left;"><%= message.message %></p>
-    <% end %>
-  <% end %>
-  <%= form_with model: @message do |f| %>
-    <%= f.text_field :message %>
-    <%= f.hidden_field :room_id %>
-  <% end %>
-</div>
+
+    <div class="message">
+      <h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h1>
+      <% @messages.each do |message| %>
+        
+          <% if message.user_id == current_user.id %>
+            <p class="right_balloon"><%= message.message %></p>
+          <% else %>
+            <p class="left_balloon"><%= message.message %></p>
+          <% end %>
+      <% end %>
+    </div>
+      
+    <div class="send-form">
+      <%= form_with model: @message do |f| %>
+       <%= f.text_field :message %>
+       <%= f.hidden_field :room_id %>
+      <% end %>
+    </div>

@@ -1,58 +1,48 @@
-
 <div class="search-page">
-<h1>
-  <i class="fas fa-search">ニックネームでさがす</i>
-</h1>
-
+  <h1><i class="fas fa-search">ニックネームでさがす</i></h1>
   <div class="search-form">
     <%= form_with url: users_search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :content %>
-    <%= f.submit '検索' %>
+    <%= f.text_field :content, placeholder: "ニックネームで検索" %>
+    <%= f.submit '検索', class: "btn btn-primary" %>
     <% end %>
   </div>
-
-
 <!--存在しないユーザーか空文字で検索した際に表示-->
 <% if !@content.nil? && (@content.empty? || @users.empty?) %>
   <p>お探しのユーザーは見つかりませんでした。</p>
 <!--存在するユーザーを検索した際に表示-->
 <% elsif @users.present? %>
-
-<div class="container">
-	<h3>検索ワード "<%= @content %>"</h3>
-  <div class="row mt-5">
-    <div class="col">
-      <h3 class="bg-light text-center" style="width:150px">検索結果</h3>
-
-      <table class="table mt-5">
-        <thead class="thead-light">
-          <tr>
-            <th>プロフィール画像</th>
-            <th>ニックネーム</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-          <tr>
-            <td>
-              <% if user.image? %>
-                <%= image_tag user.image.url, class: "icon_image" %>
-              <% else%>
-                <%= image_tag "/assets/default.png", class: "icon_image" %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to user_path(user) do %>
-                <%= user.name %>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col">
+        <h3 class="bg-light text-center" style="width:150px">検索結果</h3>
+          <table class="table mt-5">
+            <thead class="thead-light">
+              <tr>
+                <th>プロフィール画像</th>
+                <th>ニックネーム</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <% if user.image? %>
+                    <%= image_tag user.image.url, class: "icon_image" %>
+                  <% else%>
+                    <%= image_tag "/assets/default.png", class: "icon_image" %>
+                  <% end %>
+               </td>
+               <td>
+                <%= link_to user_path(user) do %>
+                  <%= user.name %>
+                <% end %>
+               </td>
+              </tr>
+             <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<% end %>
+  <% end %>
 </div>

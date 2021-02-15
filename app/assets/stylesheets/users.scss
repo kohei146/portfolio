@@ -5,12 +5,10 @@
 .icon_image {
   width: 200px;
   height: 200px;
-  //サイズ指定
   border-radius: 100px;
   border: solid 1px;
-  //画像を丸くする
+  border-color: #d8d8d8;
   object-fit: cover;
-  //タテヨコ比を変えないままトリミング
 }
 
 .search-page {
@@ -18,17 +16,15 @@
   padding-top: 50px;
   text-align: center;
  }
+ p{
+  padding-top: 100px;
+  text-align: center;
+  color: #d8d8d8;
+  font-size: 32px;
+}
 }
 
 .search-form {
   padding-top: 30px;
   text-align: center;
-}
-
-
-p{
-  padding-top: 100px;
-  text-align: center;
-  color: #d8d8d8;
-  font-size: 32px;
 }

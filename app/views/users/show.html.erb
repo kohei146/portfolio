@@ -30,16 +30,16 @@
           <% end %>
         <% end %>
 
-        <%= link_to 'DM一覧へ', messages_path %>
+        <%= link_to 'DM', messages_path, class: "btn btn-info" %>
 
       </div>
       <div class="right-content col-6">
         <div class="profile-name">
-          <h3>ニックネーム</h3>
+          <h5>ニックネーム</h5>
             <%= @user.name %>
         </div>
         <div class="profile-introduction">
-          <h3>紹介文</h3>
+          <h5>紹介文</h5>
             <%= @user.introduction %>
         </div>
         <% if @user.id == current_user.id %>
@@ -47,20 +47,19 @@
         <% end %>
       </div>
     </div>
-<h1 class="mb-5">本棚</h1>
-<div class="row">
-<% @books.each do |book| %>
-<div class="col-3">
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.image %><br />
-  <% end %>
-    タイトル:<%= book.title %><br>
-    著者名:<%= book.author %><br>
-  <% if @user.id == current_user.id %>
-    <%= link_to "本棚から外す", book_path(book), method: :delete, class: "btn btn-info" %>
-  <% end %>
+    <h1 class="mb-5">本棚</h1>
+      <div class="row">
+        <% @books.each do |book| %>
+          <div class="col-3">
+            <%= link_to book_path(book.id) do %>
+              <%= image_tag book.image %><br />
+            <% end %>
+            タイトル:<%= book.title %><br>
+            著者名:<%= book.author %><br>
+            <% if @user.id == current_user.id %>
+              <%= link_to "本棚から外す", book_path(book), method: :delete, class: "btn btn-info" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
   </div>
-<% end %>
-</div>
-
-</div>
