@@ -6,13 +6,12 @@ class CommentsController < ApplicationController
     @book_comment = comment.book
     if comment.save
       @book_comment.create_notification_comment(current_user, comment.id)
-      redirect_to book_path(@book)
     end
   end
 
   def destroy
+    @book = Book.find(params[:book_id])
     Comment.find_by(id: params[:id], book_id: params[:book_id]).destroy
-    redirect_to book_path(params[:book_id])
   end
 
   private
