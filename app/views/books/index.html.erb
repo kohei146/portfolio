@@ -1,7 +1,13 @@
 <% @book_ranks.each.with_index(1) do |book, i| %>
-第<%= i %>位<%= book.title %>
-<% end %>
-
-<% @author_ranks.each.with_index(1) do |book, i| %>
-第<%= i %>位<%= book.author %>
+  <div class="book_ranks card m-5">
+    <p style="font-size: 36px;">第<%= i %>位 <%= book.title %></p>
+    <div class="book_image mb-3">
+      <%= image_tag book.image %>
+    </div>
+    <div class="card-text">
+      著者名：<%= book.author %><br>
+      出版日：<%= book.published_date %><br>
+    </div>
+    <p class="info">本の説明<br><%= book.description %></p>
+  </div>
 <% end %>
