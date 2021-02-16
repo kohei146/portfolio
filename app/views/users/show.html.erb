@@ -29,8 +29,9 @@
             <%= link_to 'chatを始める', message_path(@user.id) %>
           <% end %>
         <% end %>
-
+        <% if @user.id == current_user.id %>
         <%= link_to 'DM', messages_path, class: "btn btn-info" %>
+        <% end %>
 
       </div>
       <div class="right-content col-6">
@@ -48,6 +49,7 @@
       </div>
     </div>
     <h1 class="mb-5">本棚</h1>
+     <div class="books card mb-5">
       <div class="row">
         <% @books.each do |book| %>
           <div class="col-3">
@@ -57,9 +59,10 @@
             タイトル:<%= book.title %><br>
             著者名:<%= book.author %><br>
             <% if @user.id == current_user.id %>
-              <%= link_to "本棚から外す", book_path(book), method: :delete, class: "btn btn-info" %>
+              <%= link_to "本棚から外す", book_path(book), method: :delete, class: "btn btn-warning" %>
             <% end %>
           </div>
         <% end %>
+      </div>
       </div>
   </div>
