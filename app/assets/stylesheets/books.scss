@@ -8,48 +8,76 @@
    padding-top: 30px;
 }
 
-
-img.size{
-   width: 17%;
-   height: 17%;
-}
-
-.book-top{
-   text-align: center;
-   margin-bottom: 30px;
+.book-text{
+   width: 600px;
+   height: 600px;
+   margin: 0 auto;
 }
 
 .book-image{
+   margin: 0 auto;
    padding-top: 50px;
-   text-align: center;
-   padding-bottom: 20px;
 }
 
+.book-title{
+   text-align: center;
+   padding-top: 30px;
+   font-size: 20px;
+}
 
 .book-review{
-   width: 500px;
+   width: 400px;
    height: 200px;
-   border: solid 1px #1e1e1e;
-}
-
-.book-bottom{
-  margin-left: 600px;
+   margin: 0 auto;
 }
 
 .book-rate{
+   margin-left: 580px;
    margin-bottom: 10px;
 }
+
 .review-edit{
-  padding-top: 20px;
-  margin-left: 180px;
+   text-align: center;
+   margin-top: 10px;
 }
 
-.book-favorite{
-   margin-left: 300px;
-   font-size: 32px;
+.favorite-btn{
+   position: relative;
+   bottom: 280px;
+   left: 950px;
+}
 
+.comments{
+   width: 600px;
+   height: 200px;
+   margin: 0 auto;
+}
+
+.comments-count{
+   position: relative;
+   left: 482px;
+}
+.new-comment{
+   margin-top: 20px;
+   text-align: center;
 }
 
 .page{
    text-align: center;
 }
+
+.book_ranks{
+   .book_image{
+      margin-left: 45%;
+   }
+   .card-text{
+   font-size: 20px;
+   text-align: center;
+}
+.info{
+   font-size: 20px;
+}
+}
+
+
+

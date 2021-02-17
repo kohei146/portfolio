@@ -1,12 +1,26 @@
-
+<h2>メッセージ一覧</h2>
 <% @rooms.each do |room| %>
-  <%= link_to message_path(opponent_user(room).id) do %>
-    <% if opponent_user(room).image? %>
-      <%= image_tag opponent_user(room).image.url, class: "icon_image" %>
-    <% else %>
-      <%= image_tag "/assets/default.png", class: "icon_image" %>
-    <% end %>
-    <%= opponent_user(room).name %>
-    <%= most_new_message_preview(room) %>
-  <% end %>
+  <table class="table">
+    <tr>
+      <td>
+        <%= link_to message_path(opponent_user(room).id) do %>
+          <% if opponent_user(room).image? %>
+            <%= image_tag opponent_user(room).image.url, class: "icon_mini" %>
+          <% else %>
+            <%= image_tag "/assets/default.png", class: "icon_mini" %>
+          <% end %>
+          <%= opponent_user(room).name %>
+        <% end %>
+      </td>
+      <td class="dm_message">
+        <%= most_new_message_preview(room) %>
+      </td>
+      <td>
+        <h6 style="color: #C0C0C0;"><%= room.updated_at.strftime("%Y/%m/%d %H:%M") %></h6>
+      </td>
+    </tr>
+  </table>
 <% end %>
+        
+
+

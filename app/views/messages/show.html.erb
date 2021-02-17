@@ -2,13 +2,17 @@
   <h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h1>
   <% @messages.each do |message| %>
     <% if message.user_id == current_user.id %>
-      <p style="text-align: right;"><%= message.message %></p>
+      <p style="text-align: right; font-size: 32px; color:#696969"><%= message.message %></p>
     <% else %>
-      <p style="text-align: left;"><%= message.message %></p>
+      <p style="text-align: left; font-size: 32px; color:#696969"><%= message.message %></p>
     <% end %>
   <% end %>
+</div>
+<div class="send-form">
   <%= form_with model: @message do |f| %>
     <%= f.text_field :message %>
     <%= f.hidden_field :room_id %>
+    <%= f.submit '送信', class: "btn btn-primary" %>
   <% end %>
 </div>
+    
