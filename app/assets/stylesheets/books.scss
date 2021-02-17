@@ -28,7 +28,7 @@
    padding-top: 30px;
    font-size: 20px;
 }
-   
+
 }
 
 .book-review{
@@ -77,10 +77,18 @@
 　 .info{
    font-size: 20px;
 }
-   
+
 }
 
 // タイムラインページ
+.tl{
+   .no-follow{
+    padding-top: 100px;
+    text-align: center;
+    color: #808080;
+    font-size: 32px;
+   }
+}
 .book-tl{
    width: 600px;
    height: 350px;
