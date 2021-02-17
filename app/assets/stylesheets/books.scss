@@ -6,15 +6,14 @@
 .search_result{
    text-align: center;
    padding-top: 30px;
-}
 
+}
 .book-text{
    width: 600px;
    height: 600px;
    margin: 0 auto;
-}
 
-.book-image{
+   .book-image{
    margin: 0 auto;
    padding-top: 50px;
 }
@@ -23,6 +22,8 @@
    text-align: center;
    padding-top: 30px;
    font-size: 20px;
+}
+
 }
 
 .book-review{
@@ -79,5 +80,42 @@
 }
 }
 
-
+.book-tl{
+   width: 600px;
+   height: 350px;
+   margin: 0 auto;
+   
+   .book-user{
+      color: #808080;
+   }
+   
+   .book-box{
+   width: 600px;
+   height: 250px;
+   }
+   .icon_mini {
+   width: 40px;
+   height: 40px;
+   border-radius: 100px;
+   border: solid 1px;
+   border-color: #d8d8d8;
+   object-fit: cover;
+   }
+   .book-image{
+   padding: 30px 0 5px 30px;
+   }
+   .book-title{
+   position: relative;
+   bottom: 180px;
+   left: 200px;
+   font-size: 25px;
+   }
+   .book-author{
+   position: relative;
+   bottom: 170px;
+   left: 202px;
+   font-size: 20px;
+   padding-bottom: 5px;
+   }
+}
 

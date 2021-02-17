@@ -10,43 +10,40 @@
       出版日：<%= @book.published_date %><br>
     </div>
   </div>
-
-    <div class="book-rate">
-      評価：<%= @book.rate %>点 | <%= @book.title %>
-      <div id="star-rate-<%= @book.id %>"></div>
-      <script>
-        $('#star-rate-<%= @book.id %>').raty({
-          size: 36,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          half: true,
-          readOnly: true,
-          score: <%= @book.rate %>,
-        });
-      </script>
+  <div class="book-rate">
+    評価：<%= @book.rate %>点 | <%= @book.title %>
+    <div id="star-rate-<%= @book.id %>"></div>
+    <script>
+      $('#star-rate-<%= @book.id %>').raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        readOnly: true,
+        score: <%= @book.rate %>,
+      });
+    </script>
     </div>
     <div class="book-review card">
       <%= @book.review %>
     </div>
-      <div class="review-edit">
-        <% if @book.user_id == current_user.id %>
-          <%= link_to "レビューを書く", edit_book_path(@book), class: "btn btn-primary" %>
-        <% end %>
+    <div class="review-edit">
+      <% if @book.user_id == current_user.id %>
+        <%= link_to "レビューを書く", edit_book_path(@book), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div id="book_<%= @book.id %>">
+      <div class="favorite-btn">
+        <%= render "favorites/favorite-btn", book: @book %>
       </div>
-
-      <div id="book_<%= @book.id %>">
-        <div class="favorite-btn">
-          <%= render "favorites/favorite-btn", book: @book %>
-        </div>
-          <div class="comments-count">
-            コメント件数：<%= @book.comments.count %>
-          </div>
-          <div class="comments card">
-            <%= render 'comments/index', book: @book %>
-          </div>
+      <div class="comments-count">
+        コメント件数：<%= @book.comments.count %>
       </div>
-
+      <div class="comments card">
+        <%= render 'comments/index', book: @book %>
+      </div>
+    </div>
     <div class="new-comment">
       <%= form_with model:[@book, @comment] do |f| %>
         <%= f.text_area :comment, size: "50x5", placeholder: "コメントをここに" %><br>

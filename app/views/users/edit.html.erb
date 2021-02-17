@@ -1,7 +1,7 @@
 <h2 class="m-5">プロフィール編集</h2>
 <div class="container">
   <div class="row">
-      <div class="form card">
+      <div class="form">
         <%= form_with model:@user, local:true do |f| %>
           <div class="form-group">
             <%= f.label "プロフィール画像" %><br />
@@ -15,7 +15,7 @@
             <%= f.label "紹介文" %><br />
             <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
           </div>
-          <div class="form-group text-center">
+          <div class="form-group text-center mt-5">
             <%= f.submit "変更を保存", class:"btn btn-success" %>
           </div>
         <% end %>
