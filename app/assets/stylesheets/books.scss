@@ -3,11 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// 本検索ページ
 .search_result{
    text-align: center;
    padding-top: 30px;
-
 }
+
+.page{
+   margin: 50px 0 10px 650px;
+}
+
+// 本詳細ページ
 .book-text{
    width: 600px;
    height: 600px;
@@ -17,18 +23,16 @@
    margin: 0 auto;
    padding-top: 50px;
 }
-
-.book-title{
+   .book-title{
    text-align: center;
    padding-top: 30px;
    font-size: 20px;
 }
-
+   
 }
 
 .book-review{
    width: 400px;
-   height: 200px;
    margin: 0 auto;
 }
 
@@ -43,52 +47,49 @@
 }
 
 .favorite-btn{
-   position: relative;
-   bottom: 280px;
-   left: 950px;
+   margin-left: 960px;
+   font-size: 20px;
 }
 
 .comments{
    width: 600px;
-   height: 200px;
    margin: 0 auto;
 }
 
 .comments-count{
-   position: relative;
-   left: 482px;
+   margin-left: 485px;
 }
+
 .new-comment{
    margin-top: 20px;
    text-align: center;
 }
 
-.page{
-   text-align: center;
-}
-
+// ランキングページ
 .book_ranks{
    .book_image{
-      margin-left: 45%;
+   margin-left: 45%;
    }
    .card-text{
    font-size: 20px;
    text-align: center;
 }
-.info{
+　 .info{
    font-size: 20px;
 }
+   
 }
 
+// タイムラインページ
 .book-tl{
    width: 600px;
    height: 350px;
    margin: 0 auto;
-   
+
    .book-user{
       color: #808080;
    }
-   
+
    .book-box{
    width: 600px;
    height: 250px;
@@ -115,7 +116,6 @@
    bottom: 170px;
    left: 202px;
    font-size: 20px;
-   padding-bottom: 5px;
    }
 }
 
