@@ -47,16 +47,18 @@
       <div class="row">
         <% @books.each do |book| %>
           <div class="col-3">
-            <%= link_to book_path(book.id) do %>
-              <%= image_tag book.image %><br />
-            <% end %>
-            タイトル:<%= book.title %><br>
-            著者名:<%= book.author %><br>
-            <% if @user.id == current_user.id %>
-              <%= link_to "本棚から外す", book_path(book), method: :delete, class: "btn btn-warning" %>
-            <% end %>
+            <div id="bookshelf_<%= book.id %>">
+              <%= link_to book_path(book.id) do %>
+                <%= image_tag book.image %><br />
+              <% end %>
+              タイトル:<%= book.title %><br>
+              著者名:<%= book.author %><br>
+              <% if @user.id == current_user.id %>
+                <%= link_to "本棚から外す", book_path(book), method: :delete, remote: true, class: "btn btn-warning" %>
+              <% end %>
+            </div>
           </div>
         <% end %>
       </div>
-      </div>
+    </div>
   </div>
