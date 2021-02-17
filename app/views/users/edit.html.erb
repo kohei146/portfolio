@@ -3,6 +3,7 @@
   <div class="row">
       <div class="form">
         <%= form_with model:@user, local:true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group">
             <%= f.label "プロフィール画像" %><br />
             <%= f.file_field :image %>

@@ -46,6 +46,7 @@
     </div>
     <div class="new-comment">
       <%= form_with model:[@book, @comment] do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
         <%= f.text_area :comment, size: "30x3", placeholder: "コメントをここに" %><br>
         <%= f.submit "送信する", class: "btn btn-success" %>
       <% end %>
