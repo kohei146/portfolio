@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-  
+
   before_action :authenticate_user!, except: [:index]
-  
+
   def index
     @book_ranks = Book.create_books_ranks
     @author_ranks = Book.create_authors_ranks
