@@ -1,1 +1,29 @@
-<h1>アバウト</h1>
+  <section class="about">
+    <h2>MyBookshelfとは</h2>
+      <p class="discription">
+        MyBookshelfは自分の本棚に本を登録することで、<br>自分が読んだ本の感想を書いたり評価をすることができます。<br>
+        また、世間ではどのような感想、評価がされているかを確認することができます。<br>
+    　 </p>
+    <div class="about-box">
+      <div class="about-img">
+        <img src ="/assets/about1.jpg", width="200", height="125" >
+      </div>
+        <h3>本を検索して本棚に登録</h3>
+        <p>検索窓から本のタイトルか著者名で検索して本棚に追加しよう。追加したら評価と感想を記録できます。自分だけのオリジナル本棚を作ろう！。</p>
+    </div>
+    <div class="about-box">
+      <div class="about-img">
+      <img src ="/assets/about2.jpg", width="200", height="125" >
+      </div>
+      <h3>気になる人をフォローしてみよう</h3>
+      <p>いろんな人の本棚をのぞいて気になったらフォローしてみよう。相互フォローになればDMも送れます。趣向の似た友達の本棚を参考に新しい本に出会えるかも。</p>
+    </div>
+    <div class="about-box">
+      <div class="about-img">
+      <img src ="/assets/about3.jpg", width="200", height="125" >
+      </div>
+      <h3>ランキング機能・タイムライン</h3>
+      <p>ランキングではどんな本が今本棚に追加されているか確認できます。タイムラインではフォローした友達の本棚に追加した情報が流れます。</p>
+    </div>
+      <%= link_to '新規登録する', new_user_registration_path, class: "sign_up-button"%><br>
+  </section>

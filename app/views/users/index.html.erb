@@ -1,7 +1,7 @@
 <div class="tl">
   <h2 class="m-5">タイムライン</h2>
   <% if @books.empty? %>
-    <div class="no-follow">ニックネームで検索してフォローしてみよう</div>
+    <div class="none">ニックネームで検索してフォローしてみよう</div>
   <% else %>
     <% @books.each do |book| %>
       <div class="book-tl card mb-5">
@@ -26,7 +26,7 @@
           </div>
           <div class="book-author">
             <% if book.rate.present? %>
-              評価：<%= book.rate %>点 
+              評価：<%= book.rate %>点
               <div id="star-rate-<%= book.id %>"></div>
               <script>
                 $('#star-rate-<%= book.id %>').raty({
