@@ -45,14 +45,14 @@
         <% end %>
       </div>
     </div>
-    <h1 class="mt-5">本棚</h1>
-     <div class="books card mb-5">
+    <h1 class="mt-5 mb-5">本棚</h1>
+     <div class="bookshelf mb-5">
       <div class="row">
         <% @books.each do |book| %>
-          <div class="col-3">
+          <div class="books card col-3">
             <div id="bookshelf_<%= book.id %>">
               <%= link_to book_path(book.id) do %>
-                <%= image_tag book.image %><br />
+                <%= image_tag book.image, class: "bookhover" %><br />
               <% end %>
               タイトル:<%= book.title %><br>
               著者名:<%= book.author %><br>

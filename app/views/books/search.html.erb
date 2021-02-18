@@ -26,14 +26,14 @@
         <%= f.hidden_field :published_date, value: book[5] %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <% if Book.find_by(user_id: current_user.id, code: book[3], title: book[0]) %>
-          追加済<br>
+          <strong>追加済</strong><br>
         <% else %>
           <%= f.submit "本棚に追加する", class: "btn btn-success" %>
         <% end %>
       <% end %>
     <% end %>
 <% else %>
-  <p>タイトル・著者名で検索してみよう！</p>
+  <p class="none">タイトル・著者名で検索してみよう！</p>
  </div>
 <% end %>
 
