@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// トップページ
 body#main-container{
   background-image: url(top5.jpg);
   background-size: cover;
@@ -26,7 +27,9 @@ body#main-container::before {
   z-index: -1;
 }
 
-.text_against_picture {
+.top{
+  font-family: 'RocknRoll One', sans-serif;
+  .text_against_picture {
   text-shadow: 0 0 10px #333;
   color: #ffffff;
   margin: 50px 0 0 380px;
@@ -40,4 +43,79 @@ body#main-container::before {
 .guest_sign_in{
   padding-top: 10px;
   text-align: center;
+}
+}
+
+// アバウトページ
+.about{
+  font-family: 'RocknRoll One', sans-serif;
+  text-align: center;
+  margin-bottom: 30px;
+  h2 {
+  color: #4a4a4a;
+  font-size: 36px;
+  text-align: center;
+  margin: 30px 0 30px 0;
+  font-weight: bold;
+    
+  }
+  .discription {
+  line-height: 2.12;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #1e1e1e;
+  font-size: 17px;
+  margin-bottom: 33px;
+    
+  }
+  
+}
+   
+  .about-box {
+  width: 300px;
+  height: 300px;
+  vertical-align: middle;
+  margin-right: 20px;
+  border-radius: 7px;
+  display: inline-block;
+  background-color: #fff;
+  border: solid 3px #bfeaff;
+  h3 {
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  color: #1e1e1e;
+  font-weight: bold;
+    
+  }
+  p {
+  font-size: 12px;
+  line-height: 1.58;
+  letter-spacing: normal;
+  text-align: justify;
+  color: #1e1e1e;
+  margin: 0 15px;
+  }
+}
+
+.about-img {
+    height: 148px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign_up-button {
+    width: 400px;
+    height: 50px;
+    font-size: 14px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 25px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #fff;
+    background-color: #7ed321;
+    margin-top: 30px;
+    text-decoration: none;
 }

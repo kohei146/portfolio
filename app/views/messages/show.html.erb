@@ -1,3 +1,4 @@
+<div class="message-detail">
 <div class="message">
   <h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h1>
   <% @messages.each do |message| %>
@@ -15,4 +16,4 @@
     <%= f.submit '送信', class: "btn btn-primary" %>
   <% end %>
 </div>
-
+</div>

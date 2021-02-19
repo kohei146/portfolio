@@ -1,6 +1,6 @@
-<h1 class="m-5">マイページ</h1>
+
 <div class="container">
-  <h2 class="heading mb-5">プロフィール</h2>
+  <h2 class="heading mt-5 mb-5">プロフィール</h2>
     <div class="row">
       <div class="left-content col-6">
         <% if @user.image? %>
@@ -21,7 +21,9 @@
          <div class="chat">
           <% if current_user != @user %>
             <% if (current_user.following? @user) && (@user.following? current_user)  %>
-              <%= link_to 'chatを始める', message_path(@user.id) %>
+              <%= link_to message_path(@user.id) do %>
+                <i class="far fa-comments fa-2x my-gray"></i>
+              <% end %>
             <% end %>
           <% end %>
         </div>
@@ -31,28 +33,30 @@
           <% end %>
         </div>
       </div>
-      <div class="right-content col-6">
-        <div class="profile-name">
+      <div class="right-content card col-6">
+        <div class="profile-name text-center mb-5 mt-5">
           <h5>ニックネーム</h5>
-            <%= @user.name %>
+            <p><%= @user.name %></p>
         </div>
-        <div class="profile-introduction">
+        <div class="profile-introduction text-center">
           <h5>紹介文</h5>
             <%= @user.introduction %>
         </div>
+        <div class="profile-edit mt-5 text-right">
         <% if @user.id == current_user.id %>
-          <%= link_to "プロフィール編集", edit_user_path(@user) %>
+          <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-info" %>
         <% end %>
+        </div>
       </div>
     </div>
-    <h1 class="mt-5">本棚</h1>
-     <div class="books card mb-5">
+    <h2 class="mt-5 mb-5">本棚</h2>
+     <div class="bookshelf mb-5">
       <div class="row">
         <% @books.each do |book| %>
-          <div class="col-3">
+          <div class="books card col-3">
             <div id="bookshelf_<%= book.id %>">
               <%= link_to book_path(book.id) do %>
-                <%= image_tag book.image %><br />
+                <%= image_tag book.image, class: "bookhover" %><br />
               <% end %>
               タイトル:<%= book.title %><br>
               著者名:<%= book.author %><br>

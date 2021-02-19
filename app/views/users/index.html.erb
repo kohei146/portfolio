@@ -1,10 +1,9 @@
 <div class="tl">
-  <h2 class="m-5">タイムライン</h2>
   <% if @books.empty? %>
     <div class="none">ニックネームで検索してフォローしてみよう</div>
   <% else %>
     <% @books.each do |book| %>
-      <div class="book-tl card mb-5">
+      <div class="book-tl card mt-5 mb-5">
         <div class="book-user">
           <%= link_to user_path(book.user.id) do %>
             <%= image_tag book.user.image.url, class: 'icon_mini' %><%= book.user.name %>

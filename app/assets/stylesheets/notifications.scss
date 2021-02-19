@@ -2,10 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.notification{
+  font-family: 'RocknRoll One', sans-serif;
+}
+
 .n-circle {
   position: absolute;
-  padding-left: 81rem;
-  padding-top: 0rem;
+  left: 12px;
   color: #efa04c;
 }
 
