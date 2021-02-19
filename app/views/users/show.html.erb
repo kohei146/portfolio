@@ -1,6 +1,6 @@
-<h1 class="m-5">マイページ</h1>
+
 <div class="container">
-  <h2 class="heading mb-5">プロフィール</h2>
+  <h2 class="heading mt-5 mb-5">プロフィール</h2>
     <div class="row">
       <div class="left-content col-6">
         <% if @user.image? %>
@@ -21,7 +21,9 @@
          <div class="chat">
           <% if current_user != @user %>
             <% if (current_user.following? @user) && (@user.following? current_user)  %>
-              <%= link_to 'chatを始める', message_path(@user.id) %>
+              <%= link_to message_path(@user.id) do %>
+                <i class="far fa-comments fa-2x"></i>
+              <% end %>
             <% end %>
           <% end %>
         </div>
@@ -41,11 +43,11 @@
             <%= @user.introduction %>
         </div>
         <% if @user.id == current_user.id %>
-          <%= link_to "プロフィール編集", edit_user_path(@user) %>
+          <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-info" %>
         <% end %>
       </div>
     </div>
-    <h1 class="mt-5 mb-5">本棚</h1>
+    <h2 class="mt-5 mb-5">本棚</h2>
      <div class="bookshelf mb-5">
       <div class="row">
         <% @books.each do |book| %>

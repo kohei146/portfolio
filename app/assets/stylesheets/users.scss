@@ -12,6 +12,22 @@
   object-fit: cover;
 }
 
+.left-content{
+  .follow-btn{
+    margin-left: 45px;
+  }
+  .chat{
+    position: relative;
+    bottom: 35px;
+    left: 170px;
+  }
+  .chat-index{
+    position: relative;
+    bottom: 32px;
+    left: 230px;
+  }
+}
+
 .search-page {
   h1{
   padding-top: 50px;
@@ -23,7 +39,7 @@
   color: #d8d8d8;
   font-size: 32px;
 }
-  
+
 }
 
 .search-form {
@@ -33,4 +49,20 @@
 
 .form{
   margin: 0 auto;
+}
+
+.bookshelf{
+   background: #deb887f;
+   .books{
+    padding-left: 75px;
+   }
+}
+
+.bookhover{
+  transition-duration: 0.3s;
+
+}
+.bookhover:hover{
+  transform: scale(1.2);
+  transition-duration: 0.3s;
 }
