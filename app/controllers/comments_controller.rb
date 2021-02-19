@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     @book_comment = comment.book
     if comment.save
       @book_comment.create_notification_comment(current_user, comment.id)
+    else
+      render ""
     end
   end
 

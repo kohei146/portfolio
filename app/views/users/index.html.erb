@@ -1,5 +1,49 @@
-<% @books.each do |book| %>
-  <div>
-    <%= book.user.name %>さんが<%= image_tag book.image %><%= book.title %>を本棚に登録しました。
-  </div>
-<% end %>
+<div class="tl">
+  <h2 class="m-5">タイムライン</h2>
+  <% if @books.empty? %>
+    <div class="none">ニックネームで検索してフォローしてみよう</div>
+  <% else %>
+    <% @books.each do |book| %>
+      <div class="book-tl card mb-5">
+        <div class="book-user">
+          <%= link_to user_path(book.user.id) do %>
+            <%= image_tag book.user.image.url, class: 'icon_mini' %><%= book.user.name %>
+          <% end %>
+          さんが本棚に登録しました
+          <div class="text-right">
+            <%= " (#{time_ago_in_words(book.created_at)}前)" %>
+          </div>
+        </div>
+        <div class="book-box card">
+          <div class="book-image">
+            <%= image_tag book.image %>
+          </div>
+          <div class="book-title">
+            <%= book.title %>
+          </div>
+          <div class="book-author">
+            <p style="color:#787878"><%= book.author %></p>
+          </div>
+          <div class="book-author">
+            <% if book.rate.present? %>
+              評価：<%= book.rate %>点
+              <div id="star-rate-<%= book.id %>"></div>
+              <script>
+                $('#star-rate-<%= book.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= book.rate %>,
+                });
+              </script>
+              <%= link_to "レビューを見る", book_path(book.id) %>
+             <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

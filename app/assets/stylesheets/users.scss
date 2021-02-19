@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .icon_image {
   width: 200px;
   height: 200px;
@@ -16,15 +17,20 @@
   padding-top: 50px;
   text-align: center;
  }
- p{
+  p{
   padding-top: 100px;
   text-align: center;
   color: #d8d8d8;
   font-size: 32px;
 }
+  
 }
 
 .search-form {
   padding-top: 30px;
   text-align: center;
+}
+
+.form{
+  margin: 0 auto;
 }

@@ -1,5 +1,5 @@
+<h1 class="m-5">マイページ</h1>
 <div class="container">
-  <h1 class="mb-5">マイページ</h1>
   <h2 class="heading mb-5">プロフィール</h2>
     <div class="row">
       <div class="left-content col-6">
@@ -18,15 +18,18 @@
             </div>
         <% end %>
          </div>
-        <% if current_user != @user %>
-          <% if (current_user.following? @user) && (@user.following? current_user)  %>
-            <%= link_to 'chatを始める', message_path(@user.id) %>
+         <div class="chat">
+          <% if current_user != @user %>
+            <% if (current_user.following? @user) && (@user.following? current_user)  %>
+              <%= link_to 'chatを始める', message_path(@user.id) %>
+            <% end %>
           <% end %>
-        <% end %>
-        <% if @user.id == current_user.id %>
-        <%= link_to 'DM', messages_path, class: "btn btn-info" %>
-        <% end %>
-
+        </div>
+        <div class="chat-index">
+          <% if @user.id == current_user.id %>
+            <%= link_to 'DM', messages_path, class: "btn btn-info" %>
+          <% end %>
+        </div>
       </div>
       <div class="right-content col-6">
         <div class="profile-name">
@@ -42,21 +45,23 @@
         <% end %>
       </div>
     </div>
-    <h1 class="mb-5">本棚</h1>
+    <h1 class="mt-5">本棚</h1>
      <div class="books card mb-5">
       <div class="row">
         <% @books.each do |book| %>
           <div class="col-3">
-            <%= link_to book_path(book.id) do %>
-              <%= image_tag book.image %><br />
-            <% end %>
-            タイトル:<%= book.title %><br>
-            著者名:<%= book.author %><br>
-            <% if @user.id == current_user.id %>
-              <%= link_to "本棚から外す", book_path(book), method: :delete, class: "btn btn-warning" %>
-            <% end %>
+            <div id="bookshelf_<%= book.id %>">
+              <%= link_to book_path(book.id) do %>
+                <%= image_tag book.image %><br />
+              <% end %>
+              タイトル:<%= book.title %><br>
+              著者名:<%= book.author %><br>
+              <% if @user.id == current_user.id %>
+                <%= link_to "本棚から外す", book_path(book), method: :delete, remote: true, class: "btn btn-warning" %>
+              <% end %>
+            </div>
           </div>
         <% end %>
       </div>
-      </div>
+    </div>
   </div>

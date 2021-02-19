@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index]
+
   def index
     @book_ranks = Book.create_books_ranks
     @author_ranks = Book.create_authors_ranks
@@ -14,7 +16,8 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-      redirect_to user_path(current_user.id), notice: "You have created book successfully."
+      redirect_to user_path(current_user.id)
+      flash[:success] = "本棚に登録しました"
     else
       render 'search'
     end
@@ -26,14 +29,18 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to book_path(@book.id)
+    if @book.update(book_params)
+       flash[:success] = "レビューを投稿しました"
+       redirect_to book_path(@book.id)
+    else
+       render "edit"
+    end
   end
 
   def destroy
-    book = Book.find(params[:id])
-    book.destroy
-    redirect_to user_path(current_user.id)
+    @book = Book.find(params[:id])
+    @book.destroy
+
   end
 
   def search

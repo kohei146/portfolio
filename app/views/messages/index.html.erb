@@ -1,26 +1,31 @@
-<h2>メッセージ一覧</h2>
-<% @rooms.each do |room| %>
-  <table class="table">
-    <tr>
-      <td>
-        <%= link_to message_path(opponent_user(room).id) do %>
-          <% if opponent_user(room).image? %>
-            <%= image_tag opponent_user(room).image.url, class: "icon_mini" %>
-          <% else %>
-            <%= image_tag "/assets/default.png", class: "icon_mini" %>
-          <% end %>
-          <%= opponent_user(room).name %>
-        <% end %>
-      </td>
-      <td class="dm_message">
-        <%= most_new_message_preview(room) %>
-      </td>
-      <td>
-        <h6 style="color: #C0C0C0;"><%= room.updated_at.strftime("%Y/%m/%d %H:%M") %></h6>
-      </td>
-    </tr>
-  </table>
-<% end %>
-        
+<div class="room-index">
+  <h2 class="mt-5">メッセージ一覧</h2>
+  <% if @rooms.empty? %>
+    <p>相互フォローの相手にメッセージを送ってみよう</p>
+  <% else %>
+    <% @rooms.each do |room| %>
+      <table class="table">
+        <tr>
+          <td>
+            <%= link_to message_path(opponent_user(room).id) do %>
+              <% if opponent_user(room).image? %>
+                <%= image_tag opponent_user(room).image.url, class: "icon_mini" %>
+              <% else %>
+                <%= image_tag "/assets/default.png", class: "icon_mini" %>
+              <% end %>
+              <%= opponent_user(room).name %>
+             <% end %>
+          </td>
+          <td class="dm_message">
+            <%= most_new_message_preview(room) %>
+          </td>
+          <td>
+            <h6 style="color: #C0C0C0;"><%= room.updated_at.strftime("%Y/%m/%d %H:%M") %></h6>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  <% end %>
+</div>
 
 

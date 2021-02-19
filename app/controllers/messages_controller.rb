@@ -1,11 +1,14 @@
 class MessagesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     # ログインユーザーのidが入ったroom_idのみ配列で取得
     rooms = current_user.entries.pluck(:room_id)
     # user_idが@user且つroom_idがrooms配列の中にある数値のものを取得
     entry = Entry.find_by(user_id: @user.id, room_id: rooms)
-    
+
     if entry.nil?
       # 取得していない場合、roomのレコードとentryのレコードを作成
       @room = Room.new
@@ -24,7 +27,7 @@ class MessagesController < ApplicationController
     @message = current_user.messages.new(message_params)
     @message.save
   end
-  
+
   def index
     @rooms = current_user.rooms
   end
