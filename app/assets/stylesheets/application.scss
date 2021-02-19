@@ -26,6 +26,10 @@ html, body {
   background-color: #fafafa;
   }
 
+header{
+  font-family: 'RocknRoll One', sans-serif;
+}
+
 footer {
   width: 100%;
   bottom: 0;
@@ -34,6 +38,7 @@ footer {
   background: #a0c0c0;
   text-align: center;
   position: absolute;
+  font-family: 'RocknRoll One', sans-serif;
   }
 
 .wrapper{
@@ -44,10 +49,12 @@ footer {
 }
 
 .notice {
+  font-family: 'RocknRoll One', sans-serif;
   text-align: center;
 }
 
 .alert {
+  font-family: 'RocknRoll One', sans-serif;
   text-align: center;
 }
 
@@ -60,7 +67,7 @@ footer {
   margin: 3em auto;
   padding: 0 1em;
   max-width: 370px;
-
+  font-family: 'RocknRoll One', sans-serif;
   h2 {
   text-align: center;
   padding: 1em 0;
@@ -140,78 +147,6 @@ footer {
   text-align: center;
   color: #808080;
   font-size: 32px;
-  
+
 }
 
-// アバウトページ
-.about{
-  text-align: center;
-  margin-bottom: 30px;
-  h2 {
-  color: #4a4a4a;
-  font-size: 36px;
-  text-align: center;
-  margin: 30px 0 30px 0;
-  font-weight: bold;
-    
-  }
-  .discription {
-  line-height: 2.12;
-  letter-spacing: 0.2px;
-  text-align: center;
-  color: #1e1e1e;
-  font-size: 17px;
-  margin-bottom: 33px;
-    
-  }
-  
-}
-   
-  .about-box {
-  width: 300px;
-  height: 300px;
-  vertical-align: middle;
-  margin-right: 20px;
-  border-radius: 7px;
-  display: inline-block;
-  background-color: #fff;
-  border: solid 3px #bfeaff;
-  h3 {
-  font-size: 13px;
-  letter-spacing: 0.2px;
-  color: #1e1e1e;
-  font-weight: bold;
-    
-  }
-  p {
-  font-size: 12px;
-  line-height: 1.58;
-  letter-spacing: normal;
-  text-align: justify;
-  color: #1e1e1e;
-  margin: 0 15px;
-  }
-}
-
-.about-img {
-    height: 148px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sign_up-button {
-    width: 400px;
-    height: 50px;
-    font-size: 14px;
-    margin: 0 auto;
-    display: block;
-    border-radius: 25px;
-    line-height: 50px;
-    text-align: center;
-    letter-spacing: 0.2px;
-    color: #fff;
-    background-color: #7ed321;
-    margin-top: 30px;
-    text-decoration: none;
-}

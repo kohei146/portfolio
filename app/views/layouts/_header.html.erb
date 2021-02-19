@@ -1,6 +1,6 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark p-4" style="background-color:#a0c0c0;">
-      <a class="navbar-brand" href="/">MyBookshelf</a>
+      <a class="navbar-brand" href="/"><p>MyBookshelf</p></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,67 +10,80 @@
           <% if user_signed_in? %>
             <li class="nav-item active">
               <%= link_to user_path(current_user.id), class: 'nav-link active' do %>
-                <i class="fas fa-book">マイページ</i>
+                <i class="fas fa-book"></i>
+                <h7>マイページ</h7>
               <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to users_path, class: 'nav-link active' do %>
-                <i class="fas fa-house-user"></i>ＴＬ</i>
+                <i class="fas fa-house-user"></i>
+                <h7>タイムライン</h7>
               <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to books_path, class: 'nav-link active' do %>
-                <i class="fas fa-crown">ランキング</i>
+                <i class="fas fa-crown"></i>
+                <h7>ランキング</h7>
               <% end %>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search">さがす</i>
+                <i class="fas fa-search"></i>
+                <h7>さがす</h7>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <%= link_to books_search_path, class: 'dropdown-item' do %>
-                  <i class="fas fa-book-open">本をさがす</i>
+                  <i class="fas fa-book-open"></i>
+                  <h7>本をさがす</h7>
                 <% end %>
                 <%= link_to users_search_path, class: 'dropdown-item' do %>
-                  <i class="fas fa-users">人をさがす</i>
+                  <i class="fas fa-users"></i>
+                  <h7>友達をさがす</h7>
                 <% end %>
               </div>
             </li>
             <li class="nav-item active">
-              <%= link_to notifications_path do %>
+              <%= link_to notifications_path, class: 'nav-link active' do %>
                 <% if unchecked_notifications.any? %>
-                  <i class= "fas fa-bell nav-link active">通知</i>
-                  <i class= "fas fa-circle n-circle fa-stack-1x"></i>
+                  <span class="fa-stack">
+                    <i class= "fas fa-bell fa-lg"></i>
+                    <i class= "fas fa-circle class: n-circle"></i>
+                  </span>
                 <% else %>
-                  <i class= "fas fa-bell  nav-link active">通知</i>
+                  <i class= "fas fa-bell"></i>
                 <% end %>
               <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link active' do %>
-                <i class="fas fa-sign-out-alt">ログアウト</i>
+                <i class="fas fa-sign-out-alt"></i>
+                <h7>ログアウト</h7>
               <% end %>
             </li>
           <% else %>
           <!--ログインしていない時に表示-->
             <li class="nav-item active">
               <%= link_to about_path, class: 'nav-link active' do %>
-                <i class="fas fa-book-reader">アバウト</i>
+                <i class="fas fa-book-reader"></i>
+                <h7>MyBookshelfとは？</h7>
               <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to books_path, class: 'nav-link active' do %>
-                <i class="fas fa-crown">ランキング</i>
+                <i class="fas fa-crown"></i>
+                <h7>ランキング</h7>
               <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to new_user_registration_path, class: 'nav-link active' do %>
-                <i class="fas fa-user-plus">新規登録</i>
+                <i class="fas fa-user-plus"></i>
+                <h7>新規登録</h7>
               <% end %>
             </li>
             <li class="nav-item active">
               <%= link_to new_user_session_path, class: 'nav-link active' do %>
-                <i class="fas fa-sign-in-alt">ログイン</i>
+                <i class="fas fa-sign-in-alt"></i>
+                <h7>ログイン</h7>
               <% end %>
             </li>
           <% end %>

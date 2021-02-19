@@ -1,4 +1,5 @@
-<h1>フォロワー一覧</h1>
+<div class="relationship-lists">
+<h1 class="mt-5 mb-5">フォロワー</h1>
 <% if @users.exists? %>
   <table class='table'>
     <thead>
@@ -40,4 +41,4 @@
 <% else %>
   <div class="none">フォロワーはいません</div>
 <% end %>
-
+</div>

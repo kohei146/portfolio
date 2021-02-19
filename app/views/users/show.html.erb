@@ -22,7 +22,7 @@
           <% if current_user != @user %>
             <% if (current_user.following? @user) && (@user.following? current_user)  %>
               <%= link_to message_path(@user.id) do %>
-                <i class="far fa-comments fa-2x"></i>
+                <i class="far fa-comments fa-2x my-gray"></i>
               <% end %>
             <% end %>
           <% end %>
@@ -33,18 +33,20 @@
           <% end %>
         </div>
       </div>
-      <div class="right-content col-6">
-        <div class="profile-name">
+      <div class="right-content card col-6">
+        <div class="profile-name text-center mb-5 mt-5">
           <h5>ニックネーム</h5>
-            <%= @user.name %>
+            <p><%= @user.name %></p>
         </div>
-        <div class="profile-introduction">
+        <div class="profile-introduction text-center">
           <h5>紹介文</h5>
             <%= @user.introduction %>
         </div>
+        <div class="profile-edit mt-5 text-right">
         <% if @user.id == current_user.id %>
           <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-info" %>
         <% end %>
+        </div>
       </div>
     </div>
     <h2 class="mt-5 mb-5">本棚</h2>

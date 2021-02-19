@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// マイページ
 .icon_image {
   width: 200px;
   height: 200px;
@@ -20,18 +21,54 @@
     position: relative;
     bottom: 35px;
     left: 170px;
+    .my-gray{
+      color: gray;
+    }
   }
   .chat-index{
     position: relative;
     bottom: 32px;
     left: 230px;
+
   }
 }
 
+.bookshelf{
+   background: #deb887f;
+   .books{
+    padding-left: 75px;
+   }
+}
+
+.bookhover{
+  transition-duration: 0.3s;
+
+}
+.bookhover:hover{
+  transform: scale(1.2);
+  transition-duration: 0.3s;
+}
+
+.container{
+  font-family: 'RocknRoll One', sans-serif;
+}
+
+// ユーザー検索ページ
 .search-page {
+   font-family: 'RocknRoll One', sans-serif;
   h1{
   padding-top: 50px;
   text-align: center;
+ }
+ .search-icon{
+   position:relative;
+   left: 570px;
+   top: 100px;
+ }
+ .book-search-icon{
+   position:relative;
+   left: 550px;
+   top: 100px;
  }
   p{
   padding-top: 100px;
@@ -51,18 +88,45 @@
   margin: 0 auto;
 }
 
-.bookshelf{
-   background: #deb887f;
-   .books{
-    padding-left: 75px;
+// タイムラインページ
+
+.tl{
+  font-family: 'RocknRoll One', sans-serif;
+}
+.book-tl{
+   width: 600px;
+   height: 350px;
+   margin: 0 auto;
+
+   .book-user{
+      color: #808080;
    }
-}
 
-.bookhover{
-  transition-duration: 0.3s;
-
-}
-.bookhover:hover{
-  transform: scale(1.2);
-  transition-duration: 0.3s;
+   .book-box{
+   width: 600px;
+   height: 250px;
+   }
+   .icon_mini {
+   width: 40px;
+   height: 40px;
+   border-radius: 100px;
+   border: solid 1px;
+   border-color: #d8d8d8;
+   object-fit: cover;
+   }
+   .book-image{
+   padding: 30px 0 5px 30px;
+   }
+   .book-title{
+   position: relative;
+   bottom: 180px;
+   left: 200px;
+   font-size: 25px;
+   }
+   .book-author{
+   position: relative;
+   bottom: 170px;
+   left: 202px;
+   font-size: 20px;
+   }
 }
