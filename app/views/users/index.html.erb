@@ -6,7 +6,11 @@
       <div class="book-tl card mt-5 mb-5">
         <div class="book-user">
           <%= link_to user_path(book.user.id) do %>
-            <%= image_tag book.user.image.url, class: 'icon_mini' %><%= book.user.name %>
+            <% if book.user.image? %>
+              <%= image_tag book.user.image.url, class: 'icon_mini' %><%= book.user.name %>
+            <% else %>
+              <%= image_tag "/assets/default.png", class: "icon_mini" %>ゲスト
+            <% end %>
           <% end %>
           さんが本棚に登録しました
           <div class="text-right">
@@ -15,7 +19,9 @@
         </div>
         <div class="book-box card">
           <div class="book-image">
-            <%= image_tag book.image %>
+             <%= link_to book_path(book.id) do %>
+               <%= image_tag book.image, class: "bookhover" %>
+             <% end %>
           </div>
           <div class="book-title">
             <%= book.title %>
