@@ -4,7 +4,9 @@
   <div class="book_ranks card m-5">
     <p style="font-size: 36px;">第<%= i %>位 <%= book.title %></p>
     <div class="book_image mb-3">
-      <%= image_tag book.image %>
+      <%= link_to 'books/search?utf8=✓&keyword=' + (book.title + book.author) + '&commit=検索' do %>
+        <%= image_tag book.image, class: "bookhover" %>
+      <% end %>
     </div>
     <div class="card-text">
       著者名：<%= book.author %><br>
