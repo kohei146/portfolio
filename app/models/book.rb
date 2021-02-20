@@ -56,7 +56,7 @@ class Book < ApplicationRecord
 
   # 本棚に入っている本の数のランキング
   def self.create_books_ranks
-    Book.all.group(:code).order('count(code) desc').limit(5)
+    Book.all.group(:code).order('count(code) desc').limit(10)
   end
 
   # 本棚に入っている著者のランキング
