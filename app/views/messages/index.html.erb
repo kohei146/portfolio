@@ -11,7 +11,7 @@
               <% if opponent_user(room).image? %>
                 <%= image_tag opponent_user(room).image.url, class: "icon_mini" %>
               <% else %>
-                <%= image_tag "/assets/default.png", class: "icon_mini" %>
+                <%= image_tag "default.png", class: "icon_mini" %>
               <% end %>
               <%= opponent_user(room).name %>
              <% end %>
