@@ -6,7 +6,7 @@
         <% if @user.image? %>
           <%= image_tag @user.image.url, class: "icon_image" %><br>
         <% else %>
-          <%= image_tag "/assets/default.png", class: "icon_image" %>
+          <%= image_tag "default.png", class: "icon_image" %>
         <% end %>
         <div id="user_<%= @user.id %>">
           <div class="follow-count">

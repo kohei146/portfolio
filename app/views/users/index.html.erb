@@ -9,7 +9,7 @@
             <% if book.user.image? %>
               <%= image_tag book.user.image.url, class: 'icon_mini' %><%= book.user.name %>
             <% else %>
-              <%= image_tag "/assets/default.png", class: "icon_mini" %>ゲスト
+              <%= image_tag "default.png", class: "icon_mini" %>ゲスト
             <% end %>
           <% end %>
           さんが本棚に登録しました
