@@ -9,7 +9,7 @@
     <% end %>
   <% end %>
 </div>
-<div class="send-form">
+<div class="send-form mt-5 mb-3">
   <%= form_with model: @message do |f| %>
     <%= f.text_field :message %>
     <%= f.hidden_field :room_id %>
