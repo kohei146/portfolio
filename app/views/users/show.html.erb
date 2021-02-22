@@ -1,4 +1,3 @@
-
 <div class="container">
   <h2 class="heading mt-5 mb-5">プロフィール</h2>
     <div class="row">
@@ -29,7 +28,9 @@
         </div>
         <div class="chat-index">
           <% if @user.id == current_user.id %>
-            <%= link_to 'DM', messages_path, class: "btn btn-info" %>
+            <%= link_to messages_path, class: "btn btn-info" do %>
+              <i class="far fa-envelope fa-lg"></i>
+            <% end %>
           <% end %>
         </div>
       </div>
