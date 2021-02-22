@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   validates :name, length: { in: 1..15 }
   validates :introduction, length: { maximum: 160 }
 
@@ -70,8 +70,8 @@ class User < ApplicationRecord
       user.name = 'ゲスト'
     end
   end
-  
-  
+
+
   # アカウント作成時にメールを送信
   after_create :send_welcome_mail
   def send_welcome_mail
