@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   before_action :authenticate_user!, except: [:index]
-
+  # ランキング
   def index
     @book_ranks = Book.create_books_ranks
     @author_ranks = Book.create_authors_ranks
@@ -40,7 +40,6 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-
   end
 
   def search
@@ -50,7 +49,7 @@ class BooksController < ApplicationController
     if params[:keyword].present?
       require 'net/http'
       url = 'https://www.googleapis.com/books/v1/volumes?q='
-      request = url + params[:keyword] + '&maxResults=40'
+      request = url + params[:keyword] + '&maxResults=40' # 取得してくる件数
       enc_str = URI.encode(request)
       uri = URI.parse(enc_str)
       json = Net::HTTP.get(uri)
