@@ -19,8 +19,8 @@
         </div>
         <div class="book-box card">
           <div class="book-image">
-             <%= link_to book_path(book.id) do %>
-               <%= image_tag book.image, class: "bookhover" %>
+            <%= link_to book_path(book.id) do %>
+              <%= image_tag book.image, class: "bookhover" %>
              <% end %>
           </div>
           <div class="book-title">
@@ -45,7 +45,7 @@
                 });
               </script>
               <%= link_to "レビューを見る", book_path(book.id) %>
-             <% end %>
+            <% end %>
           </div>
         </div>
       </div>

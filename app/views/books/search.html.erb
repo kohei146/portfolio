@@ -1,43 +1,42 @@
 <div class="search-page">
   <i class="fas fa-search fa-3x class: book-search-icon"></i>
   <h1>タイトル・著者名でさがす</h1>
-
   <div class="search-form">
     <%= form_tag('/books/search', method: :get) do %>
-    <%= search_field_tag "keyword", params[:keyword], placeholder: "タイトル・著者名で検索", size: 30 %>
-    <%= submit_tag "検索", class: "btn btn-primary" %>
+      <%= search_field_tag "keyword", params[:keyword], placeholder: "タイトル・著者名で検索", size: 30 %>
+      <%= submit_tag "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
-
-<% if @books.present? %>
-  <div class="search_result">
-    <h2>検索結果</h2>
-    <% @books.each do |book| %>
-      <%= form_with model:@book, url: books_path, method: :post, local: true do |f| %>
-        <img src="<%= book[1] %>" width="100" vspace="10">
-        <%= book[0] %> |
-        <%= book[2] %> |
-        <%= f.hidden_field :title, value: book[0] %>
-        <%= f.hidden_field :image, value: book[1] %>
-        <%= f.hidden_field :author, value: book[2] %>
-        <%= f.hidden_field :code, value: book[3] %>
-        <%= f.hidden_field :description, value: book[4] %>
-        <%= f.hidden_field :published_date, value: book[5] %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <% if Book.find_by(user_id: current_user.id, code: book[3], title: book[0]) %>
-          <strong>追加済</strong><br>
-        <% else %>
-          <%= f.submit "本棚に追加する", class: "btn btn-success" %>
+  <% if @books.present? %>
+    <div class="search_result">
+      <h2>検索結果</h2>
+      <% @books.each do |book| %>
+        <%= form_with model:@book, url: books_path, method: :post, local: true do |f| %>
+          <img src="<%= book[1] %>" width="100" vspace="10">
+          <%= book[0] %> |
+          <%= book[2] %> |
+          <%= f.hidden_field :title, value: book[0] %>
+          <%= f.hidden_field :image, value: book[1] %>
+          <%= f.hidden_field :author, value: book[2] %>
+          <%= f.hidden_field :code, value: book[3] %>
+          <%= f.hidden_field :description, value: book[4] %>
+          <%= f.hidden_field :published_date, value: book[5] %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <% if Book.find_by(user_id: current_user.id, code: book[3], title: book[0]) %>
+            <strong>追加済</strong><br>
+          <% else %>
+            <%= f.submit "本棚に追加する", class: "btn btn-success" %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-<% else %>
-  <p class="none">タイトル・著者名で検索してみよう！</p>
- </div>
-<% end %>
-
-<div class="page">
-  <% if @books.present? %>
-    <%= paginate @books %>
+    </div>
+  <% else %>
+    <p class="none">タイトル・著者名で検索してみよう！</p>
   <% end %>
+
+  <div class="page">
+    <% if @books.present? %>
+      <%= paginate @books %>
+    <% end %>
+  </div>
 </div>
