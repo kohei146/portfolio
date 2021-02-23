@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @content = params[:content]
     @users = User.search(@content)
   end
-
+  # タイムライン
   def index
     @books = Book.where(user_id: [current_user.id, * current_user.following_ids]).order(created_at: :desc)
   end

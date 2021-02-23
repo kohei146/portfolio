@@ -71,7 +71,6 @@ class User < ApplicationRecord
     end
   end
 
-
   # アカウント作成時にメールを送信
   after_create :send_welcome_mail
   def send_welcome_mail
