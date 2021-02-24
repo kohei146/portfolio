@@ -1,6 +1,5 @@
-<div class="search-page">
-  <i class="fas fa-search fa-3x class: search-icon"></i>
-  <h1>ニックネームでさがす</h1>
+<div class="search-page mt-5">
+  <h1 class="mb-5"><i class="fas fa-search"></i>ニックネームでさがす</h1>
   <div class="search-form">
     <%= form_with url: users_search_path, method: :get, local: true do |f| %>
       <%= f.text_field :content, placeholder: "ニックネームで検索" %>
