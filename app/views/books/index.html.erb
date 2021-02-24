@@ -4,7 +4,7 @@
   <div class="book_ranks card">
     <p style="font-size: 40px;">第<%= i %>位 <%= book.title %></p>
     <div class="book_image text-center mb-3">
-      <%= link_to 'books/search?utf8=✓&keyword=' + (book.title + book.author) + '&commit=検索' do %>
+      <%= link_to 'books/search?utf8=✓&keyword=' + (book.title + book.author) + '&commit=検索', data: {"turbolinks" => false} do %>
         <%= image_tag book.image, class: "bookhover" %>
       <% end %>
     </div>
