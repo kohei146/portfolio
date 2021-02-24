@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="heading mt-5 mb-5">プロフィール</h2>
+  <h2 class="heading mt-5 mb-5"><i class="far fa-id-badge fa-fw"></i>プロフィール</h2>
   <div class="row">
     <div class="left-content col-6">
       <% if @user.image? %>
@@ -50,7 +50,7 @@
       </div>
     </div>
   </div>
-  <h2 class="mt-5 mb-5">本棚</h2>
+  <h2 class="mt-5 mb-5"><i class="fas fa-book fa-fw"></i>本棚</h2>
   <div class="bookshelf mb-5">
     <div class="row">
       <% @books.each do |book| %>
