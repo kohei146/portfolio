@@ -33,8 +33,7 @@
     <p class="none">タイトル・著者名で検索してみよう！</p>
   <% end %>
 
-  
-    <% if @books.present? %>
-      <%= paginate @books %>
-    <% end %>
+  <% if @books.present? %>
+    <%= paginate @books %>
+  <% end %>
 </div>
