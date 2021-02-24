@@ -1,24 +1,37 @@
-# README
+# My Bookshelf
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+検索窓に著者名やタイトルを入力すると本の検索ができます。<br>
+自分が今まで読んだ本を自分の本棚に追加しよう。<br>
+本棚に追加した本にはレビューと評価が行えます。<br>
+他人の本棚をのぞいて気になったらフォローしよう。<br>
+フォローするとTLには本棚に追加した情報が流れます。<br>
+また、相互フォローになるとDMができるので感想を言い合おう。
 
-Things you may want to cover:
+### サイトテーマ
+自分が読んだ本の感想を共有し新しい本との出会いへ繋がるサイト
 
-* Ruby version
+### テーマを選んだ理由
+本を読むのが好きで、気軽に感想を言い合えたり、
+自分が面白いと思った本が世間ではどのように評価されているのかが知れたら面白そうだと思ったため。
 
-* System dependencies
+### ターゲットユーザ
+読書が好きな方、読む本を増やしたい方全般
 
-* Configuration
+### 主な利用シーン
+本を読み終わって感想を書きたくなった時<br>
+新しく読む本を探す時<br>
+自分が読んだ本を読んでいる人が他にどんな本を読んでいるのか気になった時
+## 設計書
 
-* Database creation
+## 機能一覧
+https://docs.google.com/spreadsheets/d/1vYElnQ19qDp5naGfNVad3ME6tsqw50KO3wFRMmx9_nI/edit#gid=0
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+- インフラ：AWS(Amazon Linux 2),EC2(Amazon Linux 2),RDS
+- バージョン管理：Git,GitHub(リモート管理)
