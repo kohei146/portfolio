@@ -19,7 +19,7 @@
         </div>
         <div class="book-box card">
           <div class="book-image">
-            <%= link_to book_path(book.id) do %>
+            <%= link_to 'books/search?utf8=✓&keyword=' + (book.title + book.author) + '&commit=検索', data: {"turbolinks" => false} do %>
               <%= image_tag book.image, class: "bookhover" %>
              <% end %>
           </div>
