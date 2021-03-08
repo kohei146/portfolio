@@ -21,9 +21,9 @@ class Book < ApplicationRecord
         action: 'favorite'
       )
       # 自分の投稿にいいねした場合は通知済とする
-      # if notification.visitor_id == notification.visited_id
-        # notification.checked = true
-      # end
+       if notification.visitor_id == notification.visited_id
+         notification.checked = true
+       end
       notification.save if notification.valid?
     # end
   end

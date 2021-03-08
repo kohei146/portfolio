@@ -17,10 +17,10 @@
             <% end %>
           </td>
           <td class="dm_message">
-            <%= most_new_message_preview(room) %>
+            <%= latest_message_preview(room) %>
           </td>
           <td>
-            <h6 style="color: #C0C0C0;"><%= room.updated_at.strftime("%Y/%m/%d %H:%M") %></h6>
+            <h6 style="color: #C0C0C0;"><%= latest_message_time(room) %></h6>
           </td>
         </tr>
       <% end %>
