@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
   # タイムライン
   def index
-    @books = Book.where(user_id: [current_user.id, * current_user.following_ids]).order(created_at: :desc)
+    @books = Book.where(user_id: [current_user.id, * current_user.following_ids]).order(created_at: :desc).page(params[:page]).without_count.per(1)
   end
 
   private
