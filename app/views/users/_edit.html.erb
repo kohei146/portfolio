@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="form">
+      <%= form_with model:user, local:true do |f| %>
+        <div class="modal-body">
+          <%= render 'layouts/error_messages', model: f.object %>
+          <div class="form-group">
+            <%= f.label "プロフィール画像" %><br />
+            <%= f.file_field :image %>
+          </div>
+          <div class="form-group">
+            <%= f.label "ニックネーム" %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name"%>
+          </div>
+          <div class="form-group">
+            <%= f.label "紹介文" %><br />
+            <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" , size: "60x7"%>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "変更を保存", class:"btn btn-success" %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
