@@ -2,30 +2,30 @@
   <div class="row">
     <div class="form">
       <%= form_with model:@book, remote: true do |f| %>
-      <div class="modal-body">
-        <div class="form-group">
-          <%= f.label "感想" %><br />
-          <%= f.text_area :review, size: "60x7" %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.label "感想" %><br />
+            <%= f.text_area :review, size: "60x7" %>
+          </div>
+          <div class="field" id="star">
+            <%= f.label :rate, "星評価：" %>
+            <%= f.hidden_field :rate, id: :review_star %>
+            <script>
+              $('#star').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                scoreName: 'book[rate]',
+                half: true,
+              });
+            </script>
+          </div>
         </div>
-        <div class="field" id="star">
-          <%= f.label :rate, "星評価：" %>
-          <%= f.hidden_field :rate, id: :review_star %>
-          <script>
-            $('#star').raty({
-              size     : 36,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              scoreName: 'book[rate]',
-              half: true,
-            });
-          </script>
+        <div class="modal-footer">
+          <%= f.submit "レビューを投稿する", class: "btn btn-success" %>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
         </div>
-      </div>
-      <div class="modal-footer">
-        <%= f.submit "レビューを投稿する", class: "btn btn-success" %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-      </div>
       <% end %>
     </div>
   </div>
