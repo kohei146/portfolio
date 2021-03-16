@@ -29,7 +29,22 @@
   </div>
   <div class="review-edit">
     <% if @book.user_id == current_user.id %>
-      <%= link_to "レビューを書く", edit_book_path(@book), class: "btn btn-primary" %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        レビューを書く
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width:740px; margin-left: -120px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">レビュー</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= render "books/edit", book: @book %>
+    </div>
+  </div>
+</div>
     <% end %>
   </div>
   <div id="book_<%= @book.id %>">
@@ -51,3 +66,4 @@
     <% end %>
   </div>
 </div>
+

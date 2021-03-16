@@ -51,17 +51,4 @@
       </div>
     <% end %>
   <% end %>
-  <%= link_to_next_page @books, '次のページ', class: "next" %>
-  <script>
-    $(document).on('turbolinks:load', function() {
-      $('.tl').jscroll({
-        // 無限に追加する要素
-        contentSelector: '.book-tl',
-        // 次のページにいくためのリンクの場所
-        nextSelector: 'a.next',
-        // 読み込み中の表示
-        loadingHtml: '読み込み中'
-      });
-    });
-  </script>
 </div>
