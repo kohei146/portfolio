@@ -19,3 +19,13 @@
 //= require_tree .
 //= require jquery.raty.js
 //= require jquery.jscroll.js
+
+// トップページへスクロールする
+$(function() {
+  $('#back a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.preventDefault();
+  });
+});
