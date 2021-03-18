@@ -1,7 +1,9 @@
 <div class= "book-detail m-5">
   <div class="book-text card mb-5">
     <div class="book-image">
-      <%= image_tag @book.image, size: '280x400'%>
+      <%= link_to 'search?utf8=✓&keyword=' + (@book.title + @book.author) + '&commit=検索', data: {"turbolinks" => false} do %>
+        <%= image_tag @book.image, size: '280x400'%>
+      <% end %>
     </div>
     <div class="book-title">
       タイトル：<%= @book.title %><br>
