@@ -2,6 +2,11 @@
   <% if @books.empty? %>
     <div class="none">ニックネームで検索してフォローしてみよう</div>
   <% else %>
+    <span id="back">
+      <a href="#">
+        <%= image_tag "arrow.png", class: "arrow" %>
+      </a>
+    </span>
     <% @books.each do |book| %>
       <div class="book-tl card mt-5 mb-5">
         <div class="book-user">
