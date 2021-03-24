@@ -8,7 +8,7 @@
   </div>
   <% if @books.present? %>
     <div class="search_result">
-      <h2>検索結果</h2>
+      <h2 class="mb-5">検索結果</h2>
       <% @books.each do |book| %>
         <%= form_with model:@book, url: books_path, method: :post, local: true do |f| %>
           <img src="<%= book[1] %>" width="100" vspace="10">
