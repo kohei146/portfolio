@@ -9,7 +9,10 @@
       <% end %>
     </div>
     <div class="card-text text-center mb-3">
-      著者名：<%= book.author %><br>
+      著者名：
+      <%= link_to 'books/search?utf8=✓&keyword=' + (book.author) + '&commit=検索', data: {"turbolinks" => false} do %>
+        <%= book.author %>
+      <% end %><br>
       出版日：<%= book.published_date %><br>
     </div>
     <p class="info text-center">本の説明<br><%= book.description %></p>
